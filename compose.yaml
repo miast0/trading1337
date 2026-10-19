@@ -1,0 +1,18 @@
+services:
+  trading1337:
+    build: .
+    container_name: trading1337
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      PORT: 3000
+      HOST: 0.0.0.0
+      DATA_DIR: /app/data
+      MARKET_REFRESH_MS: 60000
+      MARKET_HISTORY_REFRESH_MS: 3600000
+    volumes:
+      - trading1337-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  trading1337-data:
