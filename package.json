@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node src/server.js",
-    "check": "node --check src/server.js && node --check src/db.js && node --check src/market.js && node --check public/app.js",
+    "check": "node scripts/check.js",
     "test": "node --test test/*.test.js"
   },
   "engines": {

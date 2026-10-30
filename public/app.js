@@ -4,6 +4,7 @@ const state = {
   leaderboard: [], leaderboardSort: { key: 'totalCents', direction: 'desc' },
   infiniteObserver: null, search: '', marketFilter: 'all', historyFilter: 'all',
   chartCache: new Map(),
+  chartCacheTimes: new Map(), searchRequest: 0, searchTimer: null,
 };
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -12,9 +13,9 @@ const h = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '
 const money = (cents, digits = 2) => new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', minimumFractionDigits: digits, maximumFractionDigits: digits }).format(Number(cents || 0) / 100);
 const quantity = (value) => Number(value || 0).toLocaleString('en-IE', { maximumFractionDigits: 8 });
 const pct = (value) => `${Number(value || 0) >= 0 ? '+' : ''}${Number(value || 0).toFixed(2)}%`;
+const compactMoney = (cents) => cents == null ? '—' : new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', notation: 'compact', maximumFractionDigits: 2 }).format(cents / 100);
 const initials = (name) => String(name || '?').split(/\s+/).slice(0, 2).map((part) => part[0]).join('');
 const shortWallet = (address) => address ? `${address.slice(0, 8)}…${address.slice(-6)}` : '—';
-const allocationColors = ['#78e7bc', '#8da5ff', '#f5a94f', '#ff8fb8', '#8bd3dd', '#c7a6ff', '#ff8a72', '#b8d66b'];
 const ago = (date) => {
   const seconds = Math.max(1, Math.floor((Date.now() - new Date(date).getTime()) / 1000));
   if (seconds < 60) return 'now'; if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
@@ -47,13 +48,29 @@ function setBusy(button, busy, label = 'Working…') {
   else { button.innerHTML = button.dataset.label || button.innerHTML; button.disabled = false; }
 }
 
+function avatarTextColor(color) {
+  const channels = (String(color).match(/^#([a-f0-9]{6})$/i)?.[1] || '78e7bc')
+    .match(/../g).map((hex) => parseInt(hex, 16) / 255)
+    .map((value) => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+  const luminance = channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+  return 1.05 / (luminance + 0.05) > (luminance + 0.05) / 0.05 ? '#ffffff' : '#000000';
+}
+
 function avatar(person, size = '') {
-  return `<span class="avatar ${size}" style="--avatar:${h(person.avatarColor)}">${h(initials(person.username))}</span>`;
+  return `<span class="avatar ${size}" style="--avatar:${h(person.avatarColor)};--avatar-text:${avatarTextColor(person.avatarColor)}">${h(initials(person.username))}</span>`;
 }
 
 function coin(asset) {
   const iconUrl = asset.iconUrl || asset.assetIconUrl;
-  return `<span class="coin" style="--coin:${h(asset.color || asset.assetColor)}"><img src="${h(iconUrl)}" alt="${h(asset.symbol)} logo" loading="lazy"></span>`;
+  const memory = ['DDR4', 'DDR5'].includes(asset.symbol);
+  return `<span class="coin${memory ? ' coin-memory' : ''}" style="--coin:${h(asset.color || asset.assetColor)}" role="img" aria-label="${h(asset.symbol)} logo"><span class="coin-fallback${iconUrl ? ' hidden' : ''}" aria-hidden="true">${h(asset.symbol)}</span>${iconUrl ? `<img src="${h(iconUrl)}" alt="" loading="lazy">` : ''}</span>`;
+}
+
+function handleCoinImageError(event) {
+  const image = event.target;
+  if (!image.matches?.('.coin img')) return;
+  image.classList.add('hidden');
+  image.previousElementSibling.classList.remove('hidden');
 }
 
 function assetPrice(asset) {
@@ -165,6 +182,21 @@ function bindChartInteraction(element, points) {
   svg.addEventListener('pointermove', update); svg.addEventListener('pointerleave', clear);
 }
 
+function marketHistory(providerId) {
+  if (!state.chartCache.has(providerId) || Date.now() - state.chartCacheTimes.get(providerId) >= 3600000) {
+    state.chartCache.set(providerId, api(`/api/market/${encodeURIComponent(providerId)}/history`));
+    state.chartCacheTimes.set(providerId, Date.now());
+  }
+  return state.chartCache.get(providerId);
+}
+
+function marketSparkline(points) {
+  const model = chartModel(points);
+  const line = model.points.map((point, index) => `${index ? 'L' : 'M'}${model.x(point.time).toFixed(1)},${model.y(point.price).toFixed(1)}`).join(' ');
+  const color = model.points.at(-1).price >= model.points[0].price ? '#78e7bc' : '#ff6577';
+  return `<svg viewBox="0 0 760 210" preserveAspectRatio="none" role="img" aria-label="Seven-day price history"><path d="${line}" fill="none" stroke="${color}" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;
+}
+
 async function hydrateMarketCharts(root = document) {
   const charts = $$('[data-market-chart]:not([data-chart-ready])', root);
   await Promise.all(charts.map(async (element) => {
@@ -174,17 +206,25 @@ async function hydrateMarketCharts(root = document) {
     const key = providerId;
     try {
       if (!providerId) throw new Error('Market provider unavailable');
-      if (!state.chartCache.has(key)) state.chartCache.set(key, api(`/api/market/${encodeURIComponent(providerId)}/history`));
-      const payload = await state.chartCache.get(key);
+      const payload = await marketHistory(key);
       if (payload.providerId !== providerId) throw new Error('Market history mismatch');
       if (payload.rangeDays !== 7) throw new Error('Unexpected market history range');
-      if (!payload.points.length) throw new Error('Chart unavailable');
-      element.innerHTML = chartSvg(payload.points, Number(element.dataset.change) >= 0 ? '#78e7bc' : '#ff6577', marker);
-      bindChartInteraction(element, payload.points);
+      if (payload.points.length < 2) throw new Error('Chart unavailable');
+      if (element.classList.contains('market-sparkline')) {
+        element.innerHTML = marketSparkline(payload.points);
+        const change = element.closest('.market-table-row')?.querySelector('[data-history-change]');
+        if (change) {
+          const value = (payload.points.at(-1).price / payload.points[0].price - 1) * 100;
+          change.textContent = pct(value);
+          change.classList.add(value >= 0 ? 'positive' : 'negative');
+        }
+      } else {
+        element.innerHTML = chartSvg(payload.points, Number(element.dataset.change) >= 0 ? '#78e7bc' : '#ff6577', marker);
+        bindChartInteraction(element, payload.points);
+      }
       element.dataset.chartReady = 'true';
     } catch {
-      state.chartCache.delete(key);
-      element.innerHTML = '<span class="chart-unavailable">Price history unavailable</span>';
+      element.innerHTML = element.classList.contains('market-sparkline') ? '<span class="chart-unavailable">—</span>' : '<span class="chart-unavailable">Price history unavailable</span>';
       element.dataset.chartReady = 'error';
     }
   }));
@@ -198,12 +238,6 @@ function feedCard(item) {
       <span class="eyebrow-small">${item.sourceTradeId ? 'Copied trade' : 'Trade'}</span>
     </div>
     ${marketEmbed(market, item)}
-    <div class="feed-actions">
-      <button data-like="${item.id}" class="${item.liked ? 'active' : ''}" aria-label="Like trade">${actionIcon('like')}<span>${item.likes}</span></button>
-      <button data-comments="${item.id}" aria-expanded="false" aria-label="Show comments">${actionIcon('comment')}<span>${item.comments}</span></button>
-      <button class="copy-button" data-copy="${item.id}" data-asset-id="${item.assetId}" data-side="${item.side}">Copy trade</button>
-    </div>
-    <div class="inline-comments hidden" data-comment-panel="trade-${item.id}"></div>
   </article>`;
 }
 
@@ -224,23 +258,32 @@ async function loadDashboard(showLoader = true) {
   if (showLoader) $('#view').innerHTML = '<div class="page-loader"><span></span><p>Opening the market…</p></div>';
   state.dashboard = await api('/api/dashboard');
   state.user = state.dashboard.user;
-  $('#side-name').textContent = `@${state.user.username}`;
-  $('#side-username').textContent = 'View profile';
-  $('#side-avatar').textContent = initials(state.user.username);
-  $('#side-avatar').style.setProperty('--avatar', state.user.avatarColor);
+  renderAccountMenu();
 }
 
-function allocationGradient(portfolio, holdings) {
-  const entries = holdings.map((item, index) => ({ value: item.valueCents, color: allocationColors[index] }));
-  entries.push({ value: portfolio.cashCents, color: '#41494e' });
-  let start = 0;
-  const stops = entries.map((entry) => {
-    const end = start + entry.value / Math.max(1, portfolio.totalCents) * 100;
-    const stop = `${entry.color} ${start.toFixed(2)}% ${end.toFixed(2)}%`;
-    start = end;
-    return stop;
-  });
-  return `conic-gradient(${stops.join(', ')})`;
+function renderAccountMenu() {
+  $('#account-toggle').innerHTML = `${avatar(state.user, 'small')}<span class="account-name">@${h(state.user.username)}</span><span class="account-chevron" aria-hidden="true">⌃</span>`;
+}
+
+function closeAccountMenu() {
+  $('#account-menu').classList.add('hidden');
+  $('#account-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function marketPickerResults(query = '') {
+  const assets = state.dashboard.assets.filter((asset) => `${asset.name} ${asset.symbol}`.toLowerCase().includes(query.trim().toLowerCase()));
+  return assets.length ? assets.map((asset) => `<button type="button" class="market-picker-option" data-composer-market="${asset.id}"><span class="asset-name">${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span></span><span>${assetPrice(asset)}</span></button>`).join('') : '<p class="picker-empty">No markets found.</p>';
+}
+
+function selectComposerMarket(id) {
+  const selected = state.dashboard.assets.find((asset) => asset.id === Number(id));
+  $('#composer-asset').value = selected ? String(selected.id) : '';
+  $('#composer-market-preview').innerHTML = selected ? marketEmbed(selected) : '';
+  $('#market-picker-toggle').textContent = selected ? `${selected.name} · ${selected.symbol}` : '+ Add market';
+  $('#market-picker-panel').classList.add('hidden');
+  $('#market-picker-toggle').setAttribute('aria-expanded', 'false');
+  $('#market-picker-toggle').focus();
+  if (selected) hydrateMarketCharts($('#composer-market-preview'));
 }
 
 function renderHome() {
@@ -248,27 +291,21 @@ function renderHome() {
   const returnClass = portfolio.returnCents >= 0 ? 'positive' : 'negative';
   const watchedAssets = assets.filter((asset) => watchlist.includes(asset.id)).slice(0, 4);
   const holdings = portfolio.holdings.slice(0, 4);
-  const allocationHoldings = portfolio.holdings;
-  $('#view').innerHTML = `${pageHead(`Good ${new Date().getHours() < 12 ? 'morning' : new Date().getHours() < 18 ? 'afternoon' : 'evening'}, @${state.user.username}`, 'Here is what is moving today.', '<button class="outline-button" data-route="transfer">Transfer funds</button>')}
-    <section class="grid-home">
+  $('#view').innerHTML = `${pageHead('Overview', `@${state.user.username}`, '<button class="outline-button" data-route="transfer">Transfer crypto</button>')}
+    <section class="account-overview">
       <div class="card balance-card">
         <span class="balance-label">Total portfolio value</span>
         <div class="balance-value">${money(portfolio.totalCents)}</div>
-        <div class="balance-breakdown"><div><span>Available EUR</span><b>${money(portfolio.cashCents)}</b></div><div><span>Cryptocurrency</span><b>${money(portfolio.investedCents)}</b></div><div><span>Total return</span><b class="${returnClass}">${portfolio.returnCents >= 0 ? '+' : '-'}${money(Math.abs(portfolio.returnCents))}</b></div></div>
-      </div>
-      <div class="card quick-card"><div class="card-head"><h2>Portfolio split</h2><button class="text-button" data-route="portfolio">View portfolio</button></div>
-        <div class="allocation"><div class="donut" style="background:${allocationGradient(portfolio, allocationHoldings)}"></div><div class="allocation-stats">
-          ${allocationHoldings.length ? allocationHoldings.map((item, i) => `<div><span><i class="dot" style="background:${allocationColors[i]}"></i>${h(item.symbol)}</span><b>${Math.round(item.valueCents / Math.max(1, portfolio.totalCents) * 100)}%</b></div>`).join('') : '<div><span>No holdings yet</span><b>€0</b></div>'}
-          <div><span><i class="dot" style="background:#41494e"></i>Cash</span><b>${Math.round(portfolio.cashCents / Math.max(1, portfolio.totalCents) * 100)}%</b></div>
-        </div></div>
+        <div class="balance-breakdown"><div><span>Available EUR</span><b>${money(portfolio.cashCents)}</b></div><div><span>Asset value</span><b>${money(portfolio.investedCents)}</b></div><div><span>Total return</span><b class="${returnClass}">${portfolio.returnCents >= 0 ? '+' : '-'}${money(Math.abs(portfolio.returnCents))}</b></div></div>
+        <div class="overview-actions"><button class="primary-button" data-open-trade>Buy / Sell</button><button class="outline-button" data-route="portfolio">View holdings</button></div>
       </div>
     </section>
-    <section class="section-grid">
+    <section class="overview-markets">
+      <div class="card"><div class="card-head"><h2>Your holdings</h2><button class="text-button" data-route="portfolio">View all</button></div><div class="holding-list">${holdings.length ? holdings.map((item) => `<div class="overview-holding"><button class="asset-name text-button" data-asset="${item.assetId}">${coin(item)}<span><b>${h(item.name)}</b><small>${quantity(item.quantity)} ${h(item.symbol)}</small></span></button><div class="price-cell"><b>${money(item.valueCents)}</b><small class="${item.returnPercent >= 0 ? 'positive' : 'negative'}">${pct(item.returnPercent)}</small></div></div>`).join('') : '<div class="empty">Your holdings will appear here after your first trade.</div>'}</div></div>
       <div class="card"><div class="card-head"><h2>Watchlist</h2><button class="text-button" data-route="markets">All markets</button></div><div class="market-list">${watchedAssets.length ? watchedAssets.map((asset) => marketRow(asset, true)).join('') : '<div class="empty">Add markets to your watchlist.</div>'}</div></div>
-      <div class="card"><div class="card-head"><h2>Recent trades</h2><button class="text-button" data-route="recent">View all</button></div><div class="feed-list">${feed.slice(0, 3).map(feedCard).join('')}</div></div>
     </section>
-    <section class="section-grid">
-      <div class="card"><div class="card-head"><h2>Your positions</h2><button class="text-button" data-route="portfolio">View all</button></div><div class="holding-list">${holdings.length ? holdings.map((item) => marketRow({ ...item, id: item.assetId }, watchlist.includes(item.assetId))).join('') : '<div class="empty">Your first position will appear here.</div>'}</div></div>
+    <section class="overview-social">
+      <div><div class="card-head"><h2>Recent trades</h2><button class="text-button" data-route="recent">View all</button></div><div class="feed-list">${feed.slice(0, 3).map(feedCard).join('')}</div></div>
       <div class="card"><div class="card-head"><h2>Top traders</h2><button class="text-button" data-route="discover">Leaderboard</button></div>${leaders.slice(0, 4).map((person, i) => `<div class="market-row" style="grid-template-columns:24px 1fr auto"><b class="rank ${i < 3 ? 'top' : ''}">${i + 1}</b><button class="person text-button" data-profile="${h(person.username)}">${avatar(person, 'small')}<span><b>@${h(person.username)}</b><small>${money(person.totalCents)}</small></span></button><b class="${person.returnPercent >= 0 ? 'positive' : 'negative'}">${pct(person.returnPercent)}</b></div>`).join('')}</div>
     </section>`;
   hydrateMarketCharts($('#view'));
@@ -279,37 +316,75 @@ function renderMarkets() {
   const watched = state.dashboard.watchlist;
   if (state.marketFilter === 'watchlist') assets = assets.filter((asset) => watched.includes(asset.id));
   else if (state.marketFilter !== 'all') assets = assets.filter((asset) => asset.category === state.marketFilter);
-  if (state.search) assets = assets.filter((asset) => `${asset.name} ${asset.symbol}`.toLowerCase().includes(state.search.toLowerCase()));
-  $('#view').innerHTML = `${pageHead('Markets', 'Live crypto, precious metals and memory prices.', `<div class="segmented market-filters" id="market-filter"><button class="${state.marketFilter === 'all' ? 'active' : ''}" data-market-filter="all">All</button><button class="${state.marketFilter === 'crypto' ? 'active' : ''}" data-market-filter="crypto">Crypto</button><button class="${state.marketFilter === 'commodity' ? 'active' : ''}" data-market-filter="commodity">Metals</button><button class="${state.marketFilter === 'memory' ? 'active' : ''}" data-market-filter="memory">Memory</button><button class="${state.marketFilter === 'watchlist' ? 'active' : ''}" data-market-filter="watchlist">Watchlist</button></div>`)}
-    <div class="market-grid">${assets.length ? assets.map((asset) => {
+  $('#view').innerHTML = `${pageHead('Markets', 'Browse assets and manage your watchlist.')}
+    <div class="market-toolbar"><div class="segmented market-filters" id="market-filter"><button class="${state.marketFilter === 'all' ? 'active' : ''}" data-market-filter="all">All assets</button><button class="${state.marketFilter === 'crypto' ? 'active' : ''}" data-market-filter="crypto">Crypto</button><button class="${state.marketFilter === 'commodity' ? 'active' : ''}" data-market-filter="commodity">Metals</button><button class="${state.marketFilter === 'memory' ? 'active' : ''}" data-market-filter="memory">Memory</button><button class="${state.marketFilter === 'watchlist' ? 'active' : ''}" data-market-filter="watchlist">Watchlist</button></div><span class="time">${assets.length} assets</span></div>
+    <div class="card market-table"><div class="market-table-row table-heading"><span>Asset</span><span>Price</span><span>24h</span><span>7d</span><span>Volume (24h)</span><span>Market cap</span><span>Last 7 days</span><span aria-label="Watchlist">★</span><span>Trade</span></div>${assets.length ? assets.map((asset) => {
       const positive = asset.change24h >= 0;
-      return `<article class="card asset-card" data-asset="${asset.id}"><div class="asset-card-top"><div class="asset-name">${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span></div><button class="star-button ${watched.includes(asset.id) ? 'active' : ''}" data-watch="${asset.id}">${watched.includes(asset.id) ? '★' : '☆'}</button></div><div class="asset-price">${assetPrice(asset)}</div><span class="${positive ? 'positive' : 'negative'}">${pct(asset.change24h)} today</span></article>`;
-    }).join('') : '<div class="empty card market-empty">No markets match this view.</div>'}</div>`;
+      return `<div class="market-table-row"><button class="asset-name text-button" data-asset="${asset.id}">${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span></button><b>${assetPrice(asset)}<small class="mobile-market-change ${positive ? 'positive' : 'negative'}">${pct(asset.change24h)}</small></b><span class="${positive ? 'positive' : 'negative'}">${pct(asset.change24h)}</span><span ${asset.change7d == null ? 'data-history-change' : `class="${asset.change7d >= 0 ? 'positive' : 'negative'}"`}>${asset.change7d == null ? '—' : pct(asset.change7d)}</span><span>${compactMoney(asset.volume24hCents)}</span><span>${compactMoney(asset.marketCapCents)}</span><div class="market-sparkline" data-market-chart data-provider="${h(asset.providerId)}"><span class="chart-loader"></span></div><button aria-label="${watched.includes(asset.id) ? 'Remove from' : 'Add to'} watchlist" class="star-button ${watched.includes(asset.id) ? 'active' : ''}" data-watch="${asset.id}">${watched.includes(asset.id) ? '★' : '☆'}</button><button class="outline-button" data-trade-asset="${asset.id}" data-trade-side="buy">Buy</button></div>`;
+    }).join('') : '<div class="empty">No markets match this view.</div>'}</div>`;
+  hydrateMarketCharts($('#view'));
+}
+
+function searchUserRow(person) {
+  return `<button class="search-result search-user" data-profile="${h(person.username)}"><span class="person">${avatar(person, 'small')}<span><b>@${h(person.username)}</b><small>${Number(person.followers).toLocaleString()} followers</small></span></span><span aria-hidden="true">→</span></button>`;
+}
+
+async function renderSearch() {
+  const query = state.search.trim();
+  const request = ++state.searchRequest;
+  $('#view').innerHTML = `${pageHead('Search', query ? `Results for “${query}”` : 'Find markets and people.')}<div id="search-results">${query ? '<div class="empty">Searching…</div>' : '<div class="empty">Enter a market or username in the search bar.</div>'}</div>`;
+  if (!query) return;
+  const payload = await api(`/api/search?q=${encodeURIComponent(query)}`);
+  if (state.route !== 'search' || state.search.trim() !== query || request !== state.searchRequest) return;
+  $('#search-results').innerHTML = `<section class="card search-section"><div class="card-head"><h2>Markets</h2><span class="time">${payload.markets.length} results</span></div>${payload.markets.length ? payload.markets.map((asset) => `<button class="search-result" data-asset="${asset.id}"><span class="asset-name">${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span></span><b>${assetPrice(asset)}</b></button>`).join('') : '<div class="empty">No markets found.</div>'}</section><section class="card search-section"><div class="card-head"><h2>Users</h2></div><div id="search-users">${payload.users.length ? payload.users.map(searchUserRow).join('') : '<div class="empty">No users found.</div>'}</div><button class="text-button search-more ${payload.hasMoreUsers ? '' : 'hidden'}" id="search-more">Load more users</button></section>`;
+  let offset = payload.users.length;
+  $('#search-more').addEventListener('click', async (event) => {
+    const button = event.currentTarget; setBusy(button, true, 'Loading…');
+    try {
+      const next = await api(`/api/search?q=${encodeURIComponent(query)}&offset=${offset}`);
+      if (state.route !== 'search' || request !== state.searchRequest) return;
+      $('#search-users').insertAdjacentHTML('beforeend', next.users.map(searchUserRow).join(''));
+      offset += next.users.length;
+      button.classList.toggle('hidden', !next.hasMoreUsers);
+    } catch (error) { toast(error.message, 'error'); }
+    finally { setBusy(button, false); }
+  });
 }
 
 function renderPortfolio() {
   const p = state.dashboard.portfolio;
   $('#view').innerHTML = `${pageHead('Portfolio', 'Your holdings and performance.', '<button class="primary-button compact" data-open-trade>Buy crypto</button>')}
     <div class="portfolio-summary"><div class="card metric-card"><small>Total value</small><strong>${money(p.totalCents)}</strong></div><div class="card metric-card"><small>Invested</small><strong>${money(p.investedCents)}</strong></div><div class="card metric-card"><small>Available EUR</small><strong>${money(p.cashCents)}</strong></div><div class="card metric-card"><small>Total return</small><strong class="${p.returnCents >= 0 ? 'positive' : 'negative'}">${p.returnCents >= 0 ? '+' : '-'}${money(Math.abs(p.returnCents))}</strong></div></div>
-    <div class="card"><div class="card-head"><h2>Holdings</h2><span class="eyebrow-small">${p.holdings.length} assets</span></div>
+    <div class="card holdings-table"><div class="card-head"><h2>Holdings</h2><span class="eyebrow-small">${p.holdings.length} assets</span></div>
       <div class="holding-row header"><span>Asset</span><span>Quantity</span><span>Avg. price</span><span>Return</span><span>Value</span><span>Trade</span></div>
       ${p.holdings.length ? p.holdings.map((item) => `<div class="holding-row"><div class="asset-name" data-asset="${item.assetId}">${coin(item)}<span><b>${h(item.name)}</b><small>${h(item.symbol)}</small></span></div><span>${quantity(item.quantity)}</span><span>${money(item.averageCostCents, item.averageCostCents < 100 ? 4 : 2)}</span><span class="${item.returnCents >= 0 ? 'positive' : 'negative'}">${pct(item.returnPercent)}</span><b>${money(item.valueCents)}</b><span class="trade-row-actions"><button class="outline-button" data-trade-asset="${item.assetId}" data-trade-side="buy">Buy</button><button class="outline-button sell-action" data-trade-asset="${item.assetId}" data-trade-side="sell">Sell</button></span></div>`).join('') : '<div class="empty">No positions yet. Make your first trade.</div>'}
     </div>`;
 }
 
 async function renderRecentTrades(reset = true) {
+  state.infiniteObserver?.disconnect();
+  state.infiniteObserver = null;
   if (reset) {
-    state.feedItems = state.dashboard.feed;
+    const payload = await api('/api/feed');
+    state.feedItems = payload.items;
     state.feedCursor = state.feedItems.at(-1)?.id || null;
-    $('#view').innerHTML = `${pageHead('Recent trades', 'Live buying and selling activity across the platform.')}<div class="card feed-list" id="full-feed"></div><div class="infinite-sentinel" id="feed-sentinel">Scroll for more trades</div>`;
+    $('#view').innerHTML = `${pageHead('Recent trades', 'Live buying and selling activity across the platform.')}<div class="feed-list" id="full-feed"></div><div class="infinite-sentinel" id="feed-sentinel">Scroll for more trades</div>`;
   }
   $('#full-feed').innerHTML = state.feedItems.length ? state.feedItems.map(feedCard).join('') : '<div class="empty">No activity to show yet.</div>';
   hydrateMarketCharts($('#full-feed'));
-  setupInfinite('#feed-sentinel', async () => {
-    if (!state.feedCursor) return false;
+  const list = $('#full-feed');
+  let hasMore = state.feedItems.length === 12;
+  setupInfinite('#feed-sentinel', async (isActive) => {
+    if (!hasMore || !state.feedCursor) return false;
     const payload = await api(`/api/feed?cursor=${state.feedCursor}`);
+    if (!isActive()) return false;
     if (!payload.items.length) { state.feedCursor = null; return false; }
-    state.feedItems.push(...payload.items); state.feedCursor = payload.items.at(-1).id; renderRecentTrades(false); return true;
+    state.feedItems.push(...payload.items);
+    state.feedCursor = payload.items.at(-1).id;
+    list.insertAdjacentHTML('beforeend', payload.items.map(feedCard).join(''));
+    hydrateMarketCharts(list);
+    hasMore = payload.items.length === 12;
+    return hasMore;
   });
 }
 
@@ -326,34 +401,42 @@ function postCard(post) {
     currentPriceCents: post.tradeCurrentPriceCents, change24h: post.tradeChange24h, category: post.tradeCategory,
     side: post.tradeSide, quantity: post.tradeQuantity, totalCents: post.tradeTotalCents, createdAt: post.tradeCreatedAt,
   } : null;
-  return `<article class="community-post"${trade ? ` data-trade-side="${trade.side}"` : ''}><header class="feed-top"><button class="person text-button" data-profile="${h(post.username)}">${avatar(post, 'small')}<span><b>@${h(post.username)}</b><small>${ago(post.createdAt)}</small></span></button><span class="eyebrow-small">${trade ? 'Trade update' : post.referencedAssetId ? 'Market discussion' : 'Post'}</span></header>${trade ? marketEmbed(trade, trade) : referenced}<p class="post-body">${h(post.body)}</p><div class="feed-actions"><button data-post-like="${post.id}" class="${post.liked ? 'active' : ''}" aria-label="Like post">${actionIcon('like')}<span>${post.likes}</span></button><button data-post-comments="${post.id}" aria-expanded="false" aria-label="Show comments">${actionIcon('comment')}<span>${post.comments}</span></button></div><div class="inline-comments hidden" data-comment-panel="post-${post.id}"></div></article>`;
+  return `<article class="community-post"${trade ? ` data-trade-side="${trade.side}"` : ''}><header class="feed-top"><button class="person text-button" data-profile="${h(post.username)}">${avatar(post, 'small')}<span><b>@${h(post.username)}</b><small>${ago(post.createdAt)}</small></span></button><span class="eyebrow-small">${trade ? 'Trade update' : post.referencedAssetId ? 'Market discussion' : 'Post'}</span></header>${trade ? marketEmbed(trade, trade) : referenced}${post.body ? `<p class="post-body">${h(post.body)}</p>` : ''}<div class="feed-actions"><button data-post-like="${post.id}" class="${post.liked ? 'active' : ''}" aria-label="Like post">${actionIcon('like')}<span>${post.likes}</span></button><button data-post-comments="${post.id}" aria-expanded="false" aria-label="Show comments">${actionIcon('comment')}<span>${post.comments}</span></button>${trade ? `<button class="copy-button" data-copy="${post.tradeId}" data-asset-id="${post.tradeAssetId}" data-side="${post.tradeSide}">Copy trade</button>` : ''}</div><div class="inline-comments hidden" data-comment-panel="post-${post.id}"></div></article>`;
 }
 
 async function renderCommunity(reset = true) {
+  state.infiniteObserver?.disconnect();
+  state.infiniteObserver = null;
   if (reset) {
     const payload = await api('/api/community?offset=0');
     state.communityItems = payload.items; state.communityOffset = payload.items.length;
     $('#view').innerHTML = `${pageHead('Community', 'Ideas, commentary and trades from people across the market.', '<div class="segmented" id="community-filter"><button class="active" data-community-following="0">For you</button><button data-community-following="1">Following</button></div>')}
-      <form class="card post-composer" id="post-form"><div id="composer-market-preview"></div><div class="composer-main">${avatar(state.user, 'small')}<textarea name="body" maxlength="1000" placeholder="What is your market view?" required></textarea></div><div class="composer-tools"><select name="assetId" id="composer-asset"><option value="">Post without a market</option>${state.dashboard.assets.map((asset) => `<option value="${asset.id}">${h(asset.name)} (${h(asset.symbol)})</option>`).join('')}</select><button class="primary-button compact" type="submit">Post</button></div><p class="form-error" id="post-error"></p></form>
-      <div class="card community-list" id="community-list"></div><div class="infinite-sentinel" id="community-sentinel">Scroll for more posts</div>`;
+      <form class="card post-composer" id="post-form"><div id="composer-market-preview"></div><div class="composer-main">${avatar(state.user, 'small')}<textarea name="body" maxlength="1000" placeholder="Share your thoughts…" required></textarea></div><div class="composer-tools"><input type="hidden" name="assetId" id="composer-asset"><div class="market-picker"><button type="button" class="outline-button" id="market-picker-toggle" aria-expanded="false" aria-controls="market-picker-panel">+ Add market</button><div class="market-picker-panel hidden" id="market-picker-panel" role="dialog" aria-label="Choose a market"><input type="search" id="market-picker-search" placeholder="Search markets" aria-label="Search for a market" autocomplete="off"><div class="market-picker-results" id="market-picker-results">${marketPickerResults()}</div><button type="button" class="text-button market-picker-clear" data-composer-market="">Remove market</button></div></div><button class="primary-button compact" type="submit">Post</button></div><p class="form-error" id="post-error"></p></form>
+      <div class="community-list" id="community-list"></div><div class="infinite-sentinel" id="community-sentinel">Scroll for more posts</div>`;
     $('#post-form').addEventListener('submit', async (event) => {
       event.preventDefault(); const button = $('button[type=submit]', event.currentTarget); setBusy(button, true, 'Posting…');
       try { await api('/api/community', { method: 'POST', body: Object.fromEntries(new FormData(event.currentTarget)) }); await renderCommunity(true); toast('Post published'); }
       catch (error) { $('#post-error').textContent = error.message; setBusy(button, false); }
     });
-    $('#composer-asset').addEventListener('change', (event) => {
-      const selected = state.dashboard.assets.find((asset) => asset.id === Number(event.target.value));
-      $('#composer-market-preview').innerHTML = selected ? marketEmbed(selected) : '';
-      if (selected) hydrateMarketCharts($('#composer-market-preview'));
-    });
+    $('#market-picker-search').addEventListener('input', (event) => { $('#market-picker-results').innerHTML = marketPickerResults(event.target.value); });
   }
   $('#community-list').innerHTML = state.communityItems.length ? state.communityItems.map(postCard).join('') : '<div class="empty">No posts yet. Start the conversation.</div>';
   hydrateMarketCharts($('#community-list'));
-  setupInfinite('#community-sentinel', async () => {
-    const following = $('#community-filter .active')?.dataset.communityFollowing || '0';
+  const list = $('#community-list');
+  const following = $('#community-filter .active')?.dataset.communityFollowing || '0';
+  let hasMore = state.communityItems.length === 12;
+  setupInfinite('#community-sentinel', async (isActive) => {
+    if (!hasMore) return false;
     const payload = await api(`/api/community?offset=${state.communityOffset}&following=${following}`);
+    if (!isActive()) return false;
     if (!payload.items.length) return false;
-    state.communityItems.push(...payload.items); state.communityOffset += payload.items.length; renderCommunity(false); return true;
+    const added = payload.items.filter((item) => !state.communityItems.some((existing) => existing.id === item.id));
+    state.communityItems.push(...added);
+    state.communityOffset += payload.items.length;
+    list.insertAdjacentHTML('beforeend', added.map(postCard).join(''));
+    hydrateMarketCharts(list);
+    hasMore = payload.items.length === 12;
+    return hasMore;
   });
 }
 
@@ -404,13 +487,12 @@ async function renderTransfer() {
   const cryptoHoldings = p.holdings.filter((item) => item.category === 'crypto');
   $('#view').innerHTML = `${pageHead('Wallet transfer', 'Send cryptocurrency to another Trading 1337 wallet.')}
     <section class="wallet-address-card card"><div><span class="eyebrow-small">Your wallet ID</span><strong>${h(state.user.walletAddress)}</strong></div><button class="outline-button" data-copy-wallet="${h(state.user.walletAddress)}">Copy wallet ID</button></section>
-    <div class="transfer-layout"><form class="card card-pad modal-form" id="transfer-form">
-      <div><label>Contacts</label><div class="contact-picker" id="transfer-contacts"><span class="time">Loading contacts…</span></div><div class="contact-requests" id="contact-requests"></div></div>
+    <div class="transfer-layout"><form class="card card-pad modal-form" id="transfer-form"><div class="transfer-form-heading"><h2>Send crypto</h2></div>
       <div><label for="transfer-wallet">Recipient wallet ID</label><input id="transfer-wallet" name="walletAddress" placeholder="0x0000000000000000000000000000000000000000" pattern="0x[a-fA-F0-9]{40}" autocomplete="off" required><div class="wallet-recipient" id="wallet-recipient"></div></div>
       <div><label for="transfer-asset">Cryptocurrency</label><select id="transfer-asset" name="assetId" required><option value="">Choose a holding</option>${cryptoHoldings.map((item) => `<option value="${item.assetId}">${h(item.name)} (${h(item.symbol)})</option>`).join('')}</select><div class="balance-hint"><span>Available balance</span><button class="balance-max" id="transfer-available" type="button" disabled>Choose an asset</button></div></div>
       <div><label for="transfer-amount">Amount</label><input id="transfer-amount" name="amount" type="number" min="0.00000001" step="any" placeholder="0.00" required></div>
       <button class="primary-button wide" type="submit" ${cryptoHoldings.length ? '' : 'disabled'}>Review transfer <span>→</span></button><p class="form-error" id="transfer-error">${cryptoHoldings.length ? '' : 'You need a cryptocurrency holding before you can make a transfer.'}</p>
-    </form><aside class="card info-panel"><span class="eyebrow-small">Wallet transfer</span><h2>Send directly to another wallet</h2><ol><li>Choose a contact or enter their wallet ID.</li><li>Select one of your cryptocurrency holdings.</li><li>Review the final wallet and amount before sending.</li></ol><p class="time">Euro balances cannot be transferred between users.</p></aside></div>`;
+    </form><aside class="card transfer-following-panel"><div class="card-head"><div><h2>Following</h2><p>Select an account to fill in its wallet address.</p></div></div><div class="following-picker" id="transfer-following"><span class="time">Loading followed accounts…</span></div></aside></div>`;
   $('#transfer-asset').addEventListener('change', (event) => {
     const holding = cryptoHoldings.find((item) => item.assetId === Number(event.target.value));
     $('#transfer-available').textContent = holding ? `${quantity(holding.quantity)} ${holding.symbol} · Use all` : 'Choose an asset';
@@ -431,48 +513,116 @@ async function renderTransfer() {
   });
   $('#transfer-form').addEventListener('submit', submitTransfer);
   try {
-    const payload = await api('/api/contacts');
-    $('#transfer-contacts').innerHTML = payload.contacts.length ? payload.contacts.map((contact) => `<button type="button" class="contact-chip" data-contact-wallet="${h(contact.walletAddress)}">${avatar(contact, 'small')}<span><b>@${h(contact.username)}</b><small>${h(shortWallet(contact.walletAddress))}</small></span></button>`).join('') : '<span class="time">Accepted contacts appear here for one-click selection.</span>';
-    $('#contact-requests').innerHTML = payload.incoming.length ? `<span class="eyebrow-small">Contact requests</span>${payload.incoming.map((contact) => `<div class="contact-request">${avatar(contact, 'small')}<b>@${h(contact.username)}</b><button type="button" class="outline-button" data-contact-accept="${contact.contactId}">Accept</button></div>`).join('')}` : '';
-  } catch (error) { $('#transfer-contacts').innerHTML = `<span class="time">${h(error.message)}</span>`; }
+    const payload = await api('/api/following');
+    const picker = $('#transfer-following');
+    if (picker) picker.innerHTML = payload.users.length ? payload.users.map((person) => `<button type="button" class="following-chip" data-recipient-wallet="${h(person.walletAddress)}">${avatar(person, 'small')}<span><b>@${h(person.username)}</b><small>${h(person.walletAddress)}</small></span></button>`).join('') : '<span class="time">Accounts you follow will appear here.</span>';
+  } catch (error) { const picker = $('#transfer-following'); if (picker) picker.innerHTML = `<span class="time">${h(error.message)}</span>`; }
 }
 
-function contactButton(profile) {
-  if (profile.contactStatus === 'accepted') return '<button class="outline-button active" disabled>Contact</button>';
-  if (profile.contactStatus === 'outgoing') return '<button class="outline-button" disabled>Request sent</button>';
-  if (profile.contactStatus === 'incoming') return `<button class="outline-button" data-contact-accept="${profile.contactRequestId}">Accept contact</button>`;
-  return `<button class="outline-button" data-profile-contact="${profile.id}" data-contact-mode="request">Add contact</button>`;
-}
-
-function renderProfile(profile = state.user, portfolio = state.dashboard.portfolio, activity = state.dashboard.feed.filter((item) => item.userId === profile.id)) {
+function renderProfile(profile, portfolio, activity, hasMore) {
   const own = profile.id === state.user.id;
   $('#view').innerHTML = `${pageHead('Trader profile', own ? 'Your public view.' : `@${profile.username}`)}
-    <section class="card profile-header">${avatar(profile, 'large')}<div><h1>@${h(profile.username)}</h1><span class="profile-full-name">${h(profile.displayName)}</span><p>${h(profile.bio || 'Active market participant.')}</p><button class="profile-wallet" data-copy-wallet="${h(profile.walletAddress)}"><span>${h(shortWallet(profile.walletAddress))}</span><small>Copy wallet ID</small></button></div>
+    <section class="card profile-header">${avatar(profile, 'large')}<div><h1>@${h(profile.username)}</h1><span class="profile-full-name">${h(profile.displayName)}</span>${profile.bio ? `<p>${h(profile.bio)}</p>` : ''}<button class="profile-wallet" data-copy-wallet="${h(profile.walletAddress)}"><span>${h(shortWallet(profile.walletAddress))}</span><small>Copy wallet ID</small></button></div>
       <div class="profile-stats"><span><b>${profile.followers}</b><small>Followers</small></span><span><b>${profile.following}</b><small>Following</small></span><span><b>${profile.trades}</b><small>Trades</small></span></div>
-      ${own ? '<button class="outline-button" id="logout-button">Log out</button>' : `<div class="profile-actions"><button class="outline-button ${profile.isFollowing ? 'active' : ''}" data-follow="${profile.id}">${profile.isFollowing ? 'Following' : 'Follow'}</button>${contactButton(profile)}</div>`}
+      ${own ? '<div class="profile-actions"><button class="outline-button edit-profile-icon" id="edit-profile-button" aria-label="Edit profile" title="Edit profile"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5 4 4 M4 20l5-1L21 7a2.8 2.8 0 0 0-4-4L5 15Z"/></svg></button></div>' : `<div class="profile-actions"><button class="outline-button ${profile.isFollowing ? 'active' : ''}" data-follow="${profile.id}">${profile.isFollowing ? 'Following' : 'Follow'}</button></div>`}
     </section>
     <div class="portfolio-summary" style="margin-top:18px"><div class="card metric-card"><small>Portfolio value</small><strong>${money(portfolio.totalCents)}</strong></div><div class="card metric-card"><small>Invested</small><strong>${money(portfolio.investedCents)}</strong></div><div class="card metric-card"><small>Available EUR</small><strong>${money(portfolio.cashCents)}</strong></div><div class="card metric-card"><small>Return</small><strong class="${portfolio.returnCents >= 0 ? 'positive' : 'negative'}">${portfolio.returnCents >= 0 ? '+' : '-'}${money(Math.abs(portfolio.returnCents))}</strong></div></div>
-    <section class="section-grid"><div class="card"><div class="card-head"><h2>Public holdings</h2></div>${portfolio.holdings.length ? portfolio.holdings.map((item) => marketRow({ ...item, id: item.assetId })).join('') : '<div class="empty">No holdings.</div>'}</div><div class="card"><div class="card-head"><h2>Recent activity</h2></div>${activity.length ? activity.map(feedCard).join('') : '<div class="empty">No public activity.</div>'}</div></section>`;
-  $('#logout-button')?.addEventListener('click', logout);
+    <section class="profile-content"><aside class="card"><div class="card-head"><h2>Holdings</h2></div>${portfolio.holdings.length ? portfolio.holdings.map((item) => marketRow({ ...item, id: item.assetId })).join('') : '<div class="empty">No holdings.</div>'}</aside><div><div class="card-head"><h2>Activity</h2></div><div class="feed-list" id="profile-activity">${activity.length ? activity.map(activityCard).join('') : '<div class="empty">No public activity.</div>'}</div><div class="infinite-sentinel" id="profile-sentinel">Scroll for more activity</div></div></section>`;
+  $('#edit-profile-button')?.addEventListener('click', openProfileEditor);
   hydrateMarketCharts($('#view'));
+  const list = $('#profile-activity');
+  const seen = new Set(activity.map((item) => `${item.activityType}-${item.id}`));
+  let offset = activity.length;
+  setupInfinite('#profile-sentinel', async (isActive) => {
+    if (!hasMore) return false;
+    const payload = await api(`/api/users/${encodeURIComponent(profile.username)}/activity?offset=${offset}`);
+    if (!isActive()) return false;
+    offset += payload.items.length;
+    const added = payload.items.filter((item) => {
+      const key = `${item.activityType}-${item.id}`;
+      if (seen.has(key)) return false;
+      seen.add(key); return true;
+    });
+    list.insertAdjacentHTML('beforeend', added.map(activityCard).join(''));
+    hydrateMarketCharts(list);
+    hasMore = payload.hasMore;
+    return hasMore;
+  });
+}
+
+function activityCard(item) {
+  return item.activityType === 'post' ? postCard(item) : feedCard(item);
+}
+
+function openProfileEditor() {
+  const user = state.user;
+  openModal(`<div class="modal-head"><h2>Edit profile</h2><button class="close-modal" aria-label="Close">×</button></div>
+    <form id="edit-profile-form" class="modal-body modal-form profile-editor-form">
+      <div><label for="profile-name">Name</label><input id="profile-name" name="displayName" value="${h(user.displayName)}" maxlength="40" autocomplete="name" required></div>
+      <div><label for="profile-email">Email</label><input id="profile-email" name="email" type="email" value="${h(user.email)}" autocomplete="email" required></div>
+      <div><label for="profile-bio">Bio</label><textarea id="profile-bio" name="bio" maxlength="1000" rows="3">${h(user.bio)}</textarea></div>
+      <details class="profile-password"><summary>Change password</summary><div class="profile-password-fields">
+        <div><label for="profile-password">New password</label><input id="profile-password" name="password" type="password" autocomplete="new-password" disabled></div>
+        <div><label for="profile-password-confirm">Confirm new password</label><input id="profile-password-confirm" name="confirmPassword" type="password" autocomplete="new-password" disabled></div>
+      </div></details>
+      <p class="form-error" id="edit-profile-error" role="alert"></p>
+      <div class="profile-editor-actions"><button class="outline-button" id="cancel-profile-edit" type="button">Cancel</button><button class="primary-button" type="submit">Save changes</button></div>
+    </form>`);
+  $('.modal').classList.add('profile-editor');
+  $('#cancel-profile-edit').addEventListener('click', closeModal);
+  $('.profile-password').addEventListener('toggle', (event) => {
+    $$('.profile-password-fields input').forEach((field) => {
+      field.disabled = !event.currentTarget.open;
+      field.required = event.currentTarget.open;
+    });
+  });
+  $('#edit-profile-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const button = $('button[type=submit]', form);
+    const error = $('#edit-profile-error');
+    error.textContent = '';
+    setBusy(button, true, 'Saving…');
+    try {
+      const payload = await api('/api/profile', { method: 'PATCH', body: Object.fromEntries(new FormData(form)) });
+      state.user = payload.user;
+      state.dashboard.user = payload.user;
+      closeModal();
+      await openProfile(payload.user.username);
+      toast('Profile updated');
+    } catch (failure) { error.textContent = failure.message; setBusy(button, false); }
+  });
 }
 
 function setupInfinite(selector, loader) {
   state.infiniteObserver?.disconnect();
   const sentinel = $(selector); if (!sentinel) return;
-  let loading = false;
-  state.infiniteObserver = new IntersectionObserver(async (entries) => {
-    if (!entries[0].isIntersecting || loading) return;
+  let loading = false; let done = false;
+  const isActive = () => sentinel.isConnected && state.infiniteObserver === observer;
+  const load = async () => {
+    if (!isActive() || loading || done) return;
     loading = true; sentinel.textContent = 'Loading…';
-    try { const more = await loader(); sentinel.textContent = more ? 'Scroll for more' : 'You’re all caught up'; }
-    catch { sentinel.textContent = 'Could not load more'; }
-    loading = false;
+    let more = false;
+    try {
+      more = await loader(isActive);
+      if (!isActive()) return;
+      sentinel.textContent = more ? 'Scroll for more' : 'You’re all caught up';
+      if (!more) { done = true; observer.disconnect(); }
+    } catch { if (isActive()) sentinel.textContent = 'Could not load more'; }
+    finally { loading = false; }
+    if (more && isActive() && sentinel.getBoundingClientRect().top <= window.innerHeight + 240) requestAnimationFrame(load);
+  };
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) load();
   }, { rootMargin: '240px' });
-  state.infiniteObserver.observe(sentinel);
+  state.infiniteObserver = observer;
+  observer.observe(sentinel);
 }
 
 async function navigate(route) {
+  clearTimeout(state.searchTimer);
   state.route = route; state.infiniteObserver?.disconnect();
+  $('#view').dataset.page = route;
   $$('.nav-item, .nav-subitem, .mobile-nav button').forEach((item) => item.classList.toggle('active', item.dataset.route === route));
   if (['discover', 'recent', 'community'].includes(route)) {
     $('[data-nav-toggle="discover"]').classList.add('active');
@@ -485,13 +635,14 @@ async function navigate(route) {
     if (['home', 'markets', 'portfolio', 'profile', 'transfer'].includes(route)) await loadDashboard(false);
     if (route === 'home') renderHome();
     else if (route === 'markets') renderMarkets();
+    else if (route === 'search') await renderSearch();
     else if (route === 'portfolio') renderPortfolio();
     else if (route === 'community') { await loadDashboard(false); await renderCommunity(); }
     else if (route === 'recent') await renderRecentTrades();
     else if (route === 'discover') await renderDiscover();
     else if (route === 'history') await renderHistory();
     else if (route === 'transfer') await renderTransfer();
-    else if (route === 'profile') renderProfile();
+    else if (route === 'profile') await openProfile(state.user.username);
   } catch (error) { $('#view').innerHTML = `<div class="empty"><h2>Could not load this page</h2><p>${h(error.message)}</p></div>`; }
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
@@ -504,9 +655,14 @@ function openModal(content, wide = false) {
 function closeModal() { $('#modal-root').innerHTML = ''; }
 
 function closeNavigation() {
+  closeAccountMenu();
   $('.sidebar')?.classList.remove('open');
   $('#sidebar-scrim')?.classList.remove('open');
   $('#mobile-menu')?.setAttribute('aria-expanded', 'false');
+}
+
+function orderAssetHeader(asset) {
+  return `${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span><span class="order-quote"><b>${assetPrice(asset)}</b><small class="${asset.change24h >= 0 ? 'positive' : 'negative'}">${pct(asset.change24h)}</small></span>`;
 }
 
 function openTrade(assetId = null, sourceTradeId = null, initialSide = 'buy') {
@@ -514,13 +670,13 @@ function openTrade(assetId = null, sourceTradeId = null, initialSide = 'buy') {
   const selected = assets.find((asset) => asset.id === Number(assetId)) || assets[0];
   if (!selected) { toast('No tradable assets are available.', 'error'); return; }
   let side = initialSide === 'sell' ? 'sell' : 'buy';
-  openModal(`<div class="modal-head"><h2>${sourceTradeId ? 'Copy trade' : 'Place an order'}</h2><button class="close-modal">×</button></div><div class="modal-body">
+  openModal(`<div class="modal-head"><h2>${sourceTradeId ? 'Copy trade' : 'Buy / Sell'}</h2><button class="close-modal" aria-label="Close">×</button></div><div class="modal-body order-body">
     <form class="modal-form" id="trade-form"><div id="trade-entry"><div><label>Asset</label><select id="trade-asset" name="assetId">${assets.map((asset) => `<option value="${asset.id}" ${asset.id === selected.id ? 'selected' : ''}>${h(asset.name)} (${h(asset.symbol)})</option>`).join('')}</select></div>
-      <div class="order-asset" id="order-asset">${coin(selected)}<span><b>${h(selected.name)}</b><small>${h(selected.symbol)}</small></span><span class="order-quote"><b>${assetPrice(selected)}</b><small class="${selected.change24h >= 0 ? 'positive' : 'negative'}">${pct(selected.change24h)}</small></span></div>
+      <div class="order-asset" id="order-asset">${orderAssetHeader(selected)}</div>
       <div class="order-type"><button type="button" class="${side === 'buy' ? 'active' : ''}" data-side="buy">Buy</button><button type="button" class="sell ${side === 'sell' ? 'active' : ''}" data-side="sell">Sell</button></div>
       <input type="hidden" name="side" value="${side}"><input type="hidden" name="sourceTradeId" value="${sourceTradeId || ''}">
       <div><label id="trade-amount-label">${side === 'buy' ? 'Amount to spend' : `Amount of ${h(selected.symbol)} to sell`}</label><div class="amount-input"><span id="amount-unit">${side === 'buy' ? '€' : h(selected.symbol)}</span><input id="trade-amount" name="amount" type="number" min="0" step="any" placeholder="0" required autofocus></div><div class="balance-hint"><span id="balance-label">${side === 'buy' ? 'Available EUR balance' : `Available ${h(selected.symbol)} balance`}</span><button class="balance-max" id="order-balance" type="button"></button></div></div>
-      <div class="order-preview"><div><span>Estimated quantity</span><b id="estimated-quantity">— ${h(selected.symbol)}</b></div><div><span>Execution</span><b>Instant market order</b></div></div></div>
+      <div class="order-preview"><div><span id="estimate-label">${side === 'buy' ? 'Estimated quantity' : 'Estimated proceeds'}</span><b id="estimated-quantity">— ${h(selected.symbol)}</b></div><div><span>Order type</span><b>Market</b></div></div></div>
       <div id="trade-review" class="hidden"><span class="eyebrow-small">Review order</span><h3 id="review-title"></h3><div class="order-preview" id="review-details"></div><button class="text-button review-back" id="review-back" type="button">← Edit order</button></div>
       <button class="primary-button wide" id="trade-submit" type="submit">Review ${sourceTradeId ? 'copy' : 'order'} <span>→</span></button><p class="form-error" id="trade-error"></p>
     </form></div>`);
@@ -529,10 +685,10 @@ function openTrade(assetId = null, sourceTradeId = null, initialSide = 'buy') {
     const asset = assets.find((item) => item.id === Number($('#trade-asset').value));
     const amount = Number($('#trade-amount').value || 0);
     const own = state.dashboard.portfolio.holdings.find((item) => item.assetId === asset.id);
-    $('#order-asset').innerHTML = `${coin(asset)}<span><b>${h(asset.name)}</b><small>${h(asset.symbol)}</small></span><span class="order-quote"><b>${assetPrice(asset)}</b><small class="${asset.change24h >= 0 ? 'positive' : 'negative'}">${pct(asset.change24h)}</small></span>`;
     $('#trade-amount-label').textContent = side === 'buy' ? 'Amount to spend' : `Amount of ${asset.symbol} to sell`;
     $('#amount-unit').textContent = side === 'buy' ? '€' : asset.symbol;
     $('#balance-label').textContent = side === 'buy' ? 'Available EUR balance' : `Available ${asset.symbol} balance`;
+    $('#estimate-label').textContent = side === 'buy' ? 'Estimated quantity' : 'Estimated proceeds';
     $('#estimated-quantity').textContent = side === 'buy' ? `${quantity(amount * 100 / asset.priceCents)} ${asset.symbol}` : money(amount * asset.priceCents);
     $('#order-balance').textContent = side === 'buy' ? `${money(state.dashboard.portfolio.cashCents)} · Use all` : `${quantity(own?.quantity || 0)} ${asset.symbol} · Sell all`;
   };
@@ -540,7 +696,11 @@ function openTrade(assetId = null, sourceTradeId = null, initialSide = 'buy') {
     $$('.order-type button').forEach((x) => x.classList.remove('active')); button.classList.add('active');
     side = button.dataset.side; $('#trade-form [name=side]').value = side; $('#trade-amount').value = ''; updateOrder();
   }));
-  $('#trade-asset').addEventListener('change', () => { $('#trade-amount').value = ''; updateOrder(); });
+  $('#trade-asset').addEventListener('change', () => {
+    const asset = assets.find((item) => item.id === Number($('#trade-asset').value));
+    $('#order-asset').innerHTML = orderAssetHeader(asset);
+    $('#trade-amount').value = ''; updateOrder();
+  });
   $('#trade-amount').addEventListener('input', updateOrder);
   $('#order-balance').addEventListener('click', () => {
     const asset = assets.find((item) => item.id === Number($('#trade-asset').value));
@@ -596,7 +756,7 @@ function showTradeSuccess(trade) {
 function renderTradePostComposer(trade) {
   state.route = 'trade-post';
   const asset = graphAsset({ ...trade, id: trade.assetId, name: trade.assetName, color: trade.assetColor });
-  $('#view').innerHTML = `${pageHead('Post your trade', 'Add your view to the completed trade.', '<button class="outline-button" data-route="community">Cancel</button>')}<form class="card trade-post-composer" id="trade-post-form" data-trade-side="${trade.side}">${marketEmbed(asset, trade)}<div class="composer-main">${avatar(state.user, 'small')}<textarea name="body" maxlength="1000" placeholder="What was your reasoning for this trade?" required autofocus></textarea></div><div class="composer-submit"><button class="primary-button" type="submit">Post to Community</button><p class="form-error" id="trade-post-error"></p></div></form>`;
+  $('#view').innerHTML = `${pageHead('Share trade', 'Post this trade to the community.', '<button class="outline-button" data-route="community">Cancel</button>')}<form class="card trade-post-composer" id="trade-post-form" data-trade-side="${trade.side}">${marketEmbed(asset, trade)}<div class="composer-main">${avatar(state.user, 'small')}<textarea name="body" maxlength="1000" placeholder="Add a message (optional)" autofocus></textarea></div><div class="composer-submit"><button class="primary-button" type="submit">Post trade</button><p class="form-error" id="trade-post-error"></p></div></form>`;
   hydrateMarketCharts($('#trade-post-form'));
   $('#trade-post-form').addEventListener('submit', async (event) => {
     event.preventDefault(); const button = $('button[type=submit]', event.currentTarget); setBusy(button, true, 'Posting…');
@@ -628,7 +788,19 @@ async function toggleInlineComments(button, kind, id) {
   const endpoint = kind === 'trade' ? `/api/trades/${id}/comments` : `/api/community/${id}/comments`;
   try {
     const payload = await api(endpoint);
-    panel.innerHTML = `<div class="comments">${commentList(payload.comments)}</div><form class="inline-comment-form" data-comment-kind="${kind}" data-comment-id="${id}"><textarea name="body" maxlength="280" rows="2" placeholder="Add a comment…" required></textarea><div><p class="form-error"></p><button class="primary-button compact" type="submit">Comment</button></div></form>`;
+    panel.innerHTML = `<div class="comments">${commentList(payload.comments)}</div><button type="button" class="load-more-comments text-button${payload.hasMore ? '' : ' hidden'}">Load more</button><form class="inline-comment-form" data-comment-kind="${kind}" data-comment-id="${id}"><textarea name="body" maxlength="280" rows="2" placeholder="Add a comment…" required></textarea><div><p class="form-error"></p><button class="primary-button compact" type="submit">Comment</button></div></form>`;
+    let cursor = payload.nextCursor;
+    const more = $('.load-more-comments', panel);
+    more.addEventListener('click', async () => {
+      setBusy(more, true, 'Loading…');
+      try {
+        const next = await api(`${endpoint}?cursor=${cursor}`);
+        if (next.comments.length) $('.comments', panel).insertAdjacentHTML('beforeend', commentList(next.comments));
+        cursor = next.nextCursor;
+        more.classList.toggle('hidden', !next.hasMore);
+      } catch (error) { toast(error.message, 'error'); }
+      finally { setBusy(more, false); }
+    });
     panel.dataset.loaded = 'true';
   } catch (error) { panel.innerHTML = `<p class="form-error">${h(error.message)}</p>`; }
 }
@@ -639,13 +811,13 @@ async function submitInlineComment(form) {
   const endpoint = kind === 'trade' ? `/api/trades/${id}/comments` : `/api/community/${id}/comments`;
   const button = $('button[type=submit]', form); setBusy(button, true, 'Posting…');
   try {
-    await api(endpoint, { method: 'POST', body: { body } });
-    const payload = await api(endpoint);
+    const payload = await api(endpoint, { method: 'POST', body: { body } });
     const panel = form.closest('.inline-comments');
-    $('.comments', panel).innerHTML = commentList(payload.comments);
+    $('.comment-empty', panel)?.remove();
+    $('.comments', panel).insertAdjacentHTML('afterbegin', commentList([payload.comment]));
     form.reset(); setBusy(button, false); toast('Comment posted');
     const counter = kind === 'trade' ? panel.parentElement.querySelector('[data-comments] span') : panel.parentElement.querySelector('[data-post-comments] span');
-    if (counter) counter.textContent = payload.comments.length;
+    if (counter) counter.textContent = payload.total;
   } catch (error) { $('.form-error', form).textContent = error.message; setBusy(button, false); }
 }
 
@@ -656,7 +828,7 @@ async function submitTransfer(event) {
   if (!holding || holding.category !== 'crypto') { $('#transfer-error').textContent = 'Choose a cryptocurrency holding.'; return; }
   const assetLabel = holding.symbol;
   const amountLabel = `${quantity(body.amount)} ${holding.symbol}`;
-  openModal(`<div class="modal-head"><h2>Review transfer</h2><button class="close-modal">×</button></div><div class="modal-body"><div class="order-preview"><div><span>Recipient wallet</span><b>${h(shortWallet(body.walletAddress))}</b></div><div><span>Asset</span><b>${h(assetLabel)}</b></div><div><span>Amount</span><b>${h(amountLabel)}</b></div></div><button class="primary-button wide" id="confirm-transfer" style="margin-top:18px">Confirm transfer <span>→</span></button><p class="form-error" id="confirm-transfer-error"></p></div>`);
+  openModal(`<div class="modal-head"><h2>Review transfer</h2><button class="close-modal" aria-label="Close">×</button></div><div class="modal-body"><div class="order-preview"><div class="wallet-review"><span>Recipient wallet</span><b>${h(body.walletAddress)}</b></div><div><span>Asset</span><b>${h(assetLabel)}</b></div><div><span>Amount</span><b>${h(amountLabel)}</b></div></div><button class="primary-button wide" id="confirm-transfer" style="margin-top:18px">Confirm transfer <span>→</span></button><p class="form-error" id="confirm-transfer-error"></p></div>`);
   $('#confirm-transfer').addEventListener('click', async () => {
     const button = $('#confirm-transfer'); setBusy(button, true, 'Sending…');
     try { await api('/api/transfers', { method: 'POST', body }); closeModal(); toast('Transfer completed'); await loadDashboard(false); await renderTransfer(); }
@@ -665,8 +837,11 @@ async function submitTransfer(event) {
 }
 
 async function openProfile(username) {
+  state.infiniteObserver?.disconnect();
+  state.infiniteObserver = null;
+  $('#view').dataset.page = 'profile';
   $('#view').innerHTML = '<div class="page-loader"><span></span><p>Opening profile…</p></div>';
-  try { const payload = await api(`/api/users/${encodeURIComponent(username)}`); state.route = 'external-profile'; renderProfile(payload.user, payload.portfolio, payload.activity); }
+  try { const payload = await api(`/api/users/${encodeURIComponent(username)}`); state.route = payload.user.id === state.user.id ? 'profile' : 'external-profile'; if (state.route === 'profile') state.user = payload.user; renderProfile(payload.user, payload.portfolio, payload.activity, payload.hasMore); }
   catch (error) { toast(error.message, 'error'); navigate('discover'); }
 }
 
@@ -688,6 +863,30 @@ async function enterApp() {
 }
 
 document.addEventListener('click', async (event) => {
+  const accountToggle = event.target.closest('#account-toggle');
+  if (accountToggle) {
+    const expanded = accountToggle.getAttribute('aria-expanded') === 'true';
+    accountToggle.setAttribute('aria-expanded', String(!expanded));
+    $('#account-menu').classList.toggle('hidden', expanded);
+    if (!expanded) $('#account-menu button').focus();
+    return;
+  }
+  if (!event.target.closest('.sidebar-account')) closeAccountMenu();
+  if (event.target.closest('#account-logout')) { closeAccountMenu(); await logout(); return; }
+  const marketToggle = event.target.closest('#market-picker-toggle');
+  if (marketToggle) {
+    const expanded = marketToggle.getAttribute('aria-expanded') === 'true';
+    marketToggle.setAttribute('aria-expanded', String(!expanded));
+    $('#market-picker-panel').classList.toggle('hidden', expanded);
+    if (!expanded) $('#market-picker-search').focus();
+    return;
+  }
+  const composerMarket = event.target.closest('[data-composer-market]');
+  if (composerMarket) { selectComposerMarket(composerMarket.dataset.composerMarket); return; }
+  if (!event.target.closest('.market-picker')) {
+    $('#market-picker-panel')?.classList.add('hidden');
+    $('#market-picker-toggle')?.setAttribute('aria-expanded', 'false');
+  }
   const navToggle = event.target.closest('[data-nav-toggle]');
   if (navToggle) {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
@@ -709,35 +908,24 @@ document.addEventListener('click', async (event) => {
   if (asset && !event.target.closest('[data-watch]')) { openAsset(asset.dataset.asset); return; }
   const watch = event.target.closest('[data-watch]');
   if (watch) { event.stopPropagation(); try { await api('/api/watchlist', { method: 'POST', body: { assetId: watch.dataset.watch } }); await loadDashboard(false); state.route === 'markets' ? renderMarkets() : renderHome(); } catch (e) { toast(e.message, 'error'); } return; }
-  const like = event.target.closest('[data-like]');
-  if (like) { const payload = await api(`/api/trades/${like.dataset.like}/like`, { method: 'POST' }); like.classList.toggle('active', payload.liked); const count = $('span', like); count.textContent = Math.max(0, Number(count.textContent) + (payload.liked ? 1 : -1)); return; }
-  const comments = event.target.closest('[data-comments]'); if (comments) { await toggleInlineComments(comments, 'trade', comments.dataset.comments); return; }
   const copy = event.target.closest('[data-copy]'); if (copy) { openTrade(copy.dataset.assetId, copy.dataset.copy, copy.dataset.side); return; }
   const postLike = event.target.closest('[data-post-like]');
   if (postLike) { const payload = await api(`/api/community/${postLike.dataset.postLike}/like`, { method: 'POST' }); postLike.classList.toggle('active', payload.liked); const count = $('span', postLike); count.textContent = Math.max(0, Number(count.textContent) + (payload.liked ? 1 : -1)); return; }
   const postComments = event.target.closest('[data-post-comments]'); if (postComments) { await toggleInlineComments(postComments, 'post', postComments.dataset.postComments); return; }
-  const contactWallet = event.target.closest('[data-contact-wallet]');
-  if (contactWallet) {
-    $('#transfer-wallet').value = contactWallet.dataset.contactWallet;
+  const recipientWallet = event.target.closest('[data-recipient-wallet]');
+  if (recipientWallet) {
+    event.preventDefault();
+    $$('.following-chip').forEach((button) => button.classList.toggle('active', button === recipientWallet));
+    $('#transfer-wallet').value = recipientWallet.dataset.recipientWallet;
     $('#transfer-wallet').dispatchEvent(new Event('input', { bubbles: true }));
-    return;
-  }
-  const requestContact = event.target.closest('[data-profile-contact]');
-  if (requestContact) {
-    try { await api(`/api/users/${requestContact.dataset.profileContact}/contact-request`, { method: 'POST' }); requestContact.textContent = 'Request sent'; requestContact.disabled = true; toast('Contact request sent'); }
-    catch (error) { toast(error.message, 'error'); }
-    return;
-  }
-  const acceptContact = event.target.closest('[data-contact-accept]');
-  if (acceptContact) {
-    try { await api(`/api/contacts/${acceptContact.dataset.contactAccept}/accept`, { method: 'POST' }); toast('Contact added'); if (state.route === 'transfer') await renderTransfer(); else { acceptContact.textContent = 'Contact'; acceptContact.disabled = true; acceptContact.classList.add('active'); } }
-    catch (error) { toast(error.message, 'error'); }
     return;
   }
   const sort = event.target.closest('[data-sort]');
   if (sort) { const key = sort.dataset.sort; state.leaderboardSort = { key, direction: state.leaderboardSort.key === key && state.leaderboardSort.direction === 'desc' ? 'asc' : 'desc' }; drawLeaderboard(); return; }
   const communityFilter = event.target.closest('[data-community-following]');
   if (communityFilter) {
+    state.infiniteObserver?.disconnect();
+    state.infiniteObserver = null;
     $$('#community-filter button').forEach((button) => button.classList.toggle('active', button === communityFilter));
     const payload = await api(`/api/community?offset=0&following=${communityFilter.dataset.communityFollowing}`);
     state.communityItems = payload.items; state.communityOffset = payload.items.length;
@@ -765,6 +953,8 @@ document.addEventListener('submit', (event) => {
   event.preventDefault(); submitInlineComment(form);
 });
 
+document.addEventListener('error', handleCoinImageError, true);
+
 $$('.auth-tab').forEach((tab) => tab.addEventListener('click', () => {
   $$('.auth-tab').forEach((item) => item.classList.toggle('active', item === tab));
   $('#login-form').classList.toggle('hidden', tab.dataset.authTab !== 'login');
@@ -772,8 +962,13 @@ $$('.auth-tab').forEach((tab) => tab.addEventListener('click', () => {
 }));
 $('#login-form').addEventListener('submit', (event) => submitAuth(event, 'login'));
 $('#register-form').addEventListener('submit', (event) => submitAuth(event, 'register'));
-$('#global-search').addEventListener('input', (event) => { state.search = event.target.value; if (state.route === 'markets') renderMarkets(); });
-$('#global-search').addEventListener('keydown', (event) => { if (event.key === 'Enter') navigate('markets'); });
+$('#global-search').addEventListener('input', (event) => {
+  state.search = event.target.value;
+  clearTimeout(state.searchTimer);
+  state.searchRequest++;
+  state.searchTimer = setTimeout(() => navigate('search'), 250);
+});
+$('#global-search').addEventListener('keydown', (event) => { if (event.key === 'Enter') navigate('search'); });
 $('#mobile-menu').addEventListener('click', () => {
   const open = !$('.sidebar').classList.contains('open');
   $('.sidebar').classList.toggle('open', open); $('#sidebar-scrim').classList.toggle('open', open);
@@ -781,8 +976,20 @@ $('#mobile-menu').addEventListener('click', () => {
 });
 $('#sidebar-scrim').addEventListener('click', closeNavigation);
 document.addEventListener('keydown', (event) => {
+  if ($('#account-toggle').getAttribute('aria-expanded') === 'true' && ['ArrowDown', 'ArrowUp'].includes(event.key)) {
+    event.preventDefault();
+    const buttons = $$('#account-menu button');
+    const index = buttons.indexOf(document.activeElement);
+    buttons[(index + (event.key === 'ArrowDown' ? 1 : buttons.length - 1)) % buttons.length].focus();
+  }
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); $('#global-search').focus(); }
-  if (event.key === 'Escape') closeModal();
+  if (event.key === 'Escape') {
+    if ($('#account-toggle').getAttribute('aria-expanded') === 'true') $('#account-toggle').focus();
+    if ($('#market-picker-toggle')?.getAttribute('aria-expanded') === 'true') $('#market-picker-toggle').focus();
+    closeModal(); closeAccountMenu();
+    $('#market-picker-panel')?.classList.add('hidden');
+    $('#market-picker-toggle')?.setAttribute('aria-expanded', 'false');
+  }
 });
 
 (async function boot() {

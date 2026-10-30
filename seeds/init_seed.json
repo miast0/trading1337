@@ -1,0 +1,6418 @@
+{
+  "name": "init_seed",
+  "users": [
+    {
+      "username": "nora_chain",
+      "followerCount": 48500,
+      "transfers": [
+        {
+          "to": "bytebroker",
+          "asset": "BTC",
+          "quantity": 0.009,
+          "createdAt": "2026-10-02T13:00:00.000Z"
+        },
+        {
+          "to": "maya_moves",
+          "asset": "BTC",
+          "quantity": 0.0198,
+          "createdAt": "2026-10-12T17:50:00.000Z"
+        }
+      ],
+      "email": "nora.chain@trading1337.test",
+      "password": "Cedar-17-nora",
+      "name": "Nora Bennett",
+      "walletAddress": "0xb6ea336f3f4f6442901ef54c5ef869aba32eaffd",
+      "bio": "BTC structure, liquidity and patient entries.",
+      "cashCents": 18500000,
+      "createdAt": "2026-06-01T08:00:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 18,
+          "averageCostCents": 5916000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 240,
+          "averageCostCents": 201375
+        },
+        {
+          "asset": "LINK",
+          "quantity": 18000,
+          "averageCostCents": 1104
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-02T10:00:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-03T11:09:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-04T12:18:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-05T09:00:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-08T10:05:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-11T11:10:00.000Z"
+        },
+        {
+          "username": "bytebroker",
+          "createdAt": "2026-07-14T12:15:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "nora_chain_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 10.44,
+          "priceCents": 5576000,
+          "totalCents": 58213440,
+          "createdAt": "2026-08-04T09:00:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-02T12:00:00.000Z"
+            },
+            {
+              "username": "bytebroker",
+              "createdAt": "2026-10-03T09:00:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "chainlink_liv",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-03T14:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "nora_chain_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 7.56,
+          "priceCents": 6392000,
+          "totalCents": 48323520,
+          "createdAt": "2026-09-03T11:00:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 139.2,
+          "priceCents": 190125,
+          "totalCents": 26465400,
+          "createdAt": "2026-08-08T12:11:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 100.8,
+          "priceCents": 215550,
+          "totalCents": 21727440,
+          "createdAt": "2026-09-08T13:13:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_link_buy_1",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 10440,
+          "priceCents": 1044,
+          "totalCents": 10899360,
+          "createdAt": "2026-08-12T15:22:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_link_buy_2",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 7560,
+          "priceCents": 1171,
+          "totalCents": 8852760,
+          "createdAt": "2026-09-13T15:26:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "nora_chain_post_1",
+          "body": "BTC is back in the same range. I am watching the weekly close, not buying because somebody drew a rocket on a screenshot.",
+          "createdAt": "2026-10-10T08:00:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-10T16:00:00.000Z"
+            },
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-10T17:01:00.000Z"
+            },
+            {
+              "username": "bytebroker",
+              "createdAt": "2026-10-10T18:02:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ethereal_eve",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-10T18:00:00.000Z"
+            }
+          ],
+          "asset": "BTC"
+        },
+        {
+          "key": "nora_chain_post_2",
+          "body": "First BTC entry from the journal. Smaller than the final position: I wanted room to add without turning one bad candle into an emergency.",
+          "createdAt": "2026-10-12T09:07:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-12T16:05:00.000Z"
+            },
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-12T17:06:00.000Z"
+            },
+            {
+              "username": "quiet_saver",
+              "createdAt": "2026-10-12T18:07:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "satsandcharts",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-12T18:03:00.000Z"
+            }
+          ],
+          "trade": "nora_chain_btc_buy_1"
+        },
+        {
+          "key": "nora_chain_post_3",
+          "body": "My morning routine: wake up at 5, cold shower, meditate, check portfolio, return to bed at 5:07.",
+          "createdAt": "2026-10-14T10:14:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-14T16:10:00.000Z"
+            },
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-14T17:11:00.000Z"
+            },
+            {
+              "username": "luna_lee",
+              "createdAt": "2026-10-14T18:12:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_post_4",
+          "body": "The ETH entry that started this position. Posting the actual order rather than another screenshot with the balance conveniently cropped out.",
+          "createdAt": "2026-10-16T11:21:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-16T16:15:00.000Z"
+            },
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-16T17:16:00.000Z"
+            },
+            {
+              "username": "ben_hodl",
+              "createdAt": "2026-10-16T18:17:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "chainlink_liv",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-16T18:09:00.000Z"
+            }
+          ],
+          "trade": "nora_chain_eth_buy_1"
+        },
+        {
+          "key": "nora_chain_post_5",
+          "body": "Kept some cash instead of buying every dip. Very difficult to sell a course about this strategy because the entire course is that sentence.",
+          "createdAt": "2026-10-18T12:28:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-18T16:20:00.000Z"
+            },
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-18T17:21:00.000Z"
+            },
+            {
+              "username": "mia_markets",
+              "createdAt": "2026-10-18T18:22:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "nora_chain_post_6",
+          "body": "A red day is a networking event for people who call each other legends but have never met.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 184,
+          "comments": [
+            {
+              "username": "quiet_saver",
+              "body": "Finally, a morning routine I can finish.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "nora_chain_post_7",
+          "body": "BTC journal catch-up. This was an entry, not a prediction that every candle after it would be green.",
+          "trade": "nora_chain_btc_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 327,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "macro_mike",
+      "followerCount": 32400,
+      "transfers": [
+        {
+          "to": "luna_lee",
+          "asset": "BTC",
+          "quantity": 0.0096,
+          "createdAt": "2026-10-03T14:11:00.000Z"
+        },
+        {
+          "to": "nina_numbers",
+          "asset": "BTC",
+          "quantity": 0.0168,
+          "createdAt": "2026-10-13T18:01:00.000Z"
+        }
+      ],
+      "email": "macro.mike@trading1337.test",
+      "password": "Harbour-18-macr",
+      "name": "Michael Torres",
+      "walletAddress": "0xb91b282aad3882563e2ad04c80699179b2fd5f9c",
+      "bio": "Macro context, risk management and longer timeframes.",
+      "cashCents": 31000000,
+      "createdAt": "2026-07-04T09:07:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 12,
+          "averageCostCents": 6086000
+        },
+        {
+          "asset": "XAU",
+          "quantity": 210,
+          "averageCostCents": 331200
+        },
+        {
+          "asset": "ETH",
+          "quantity": 140,
+          "averageCostCents": 212625
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-03T10:05:00.000Z"
+        },
+        {
+          "asset": "XAU",
+          "createdAt": "2026-07-04T11:14:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-05T12:23:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-06T09:07:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-09T10:12:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-12T11:17:00.000Z"
+        },
+        {
+          "username": "quiet_saver",
+          "createdAt": "2026-07-15T12:22:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "macro_mike_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 6.96,
+          "priceCents": 5746000,
+          "totalCents": 39992160,
+          "createdAt": "2026-08-06T09:07:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-03T12:03:00.000Z"
+            },
+            {
+              "username": "quiet_saver",
+              "createdAt": "2026-10-04T09:05:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "coinclaire",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-04T14:07:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "macro_mike_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 5.04,
+          "priceCents": 6514400,
+          "totalCents": 32832576,
+          "createdAt": "2026-09-06T11:09:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_xau_buy_1",
+          "asset": "XAU",
+          "side": "buy",
+          "quantity": 121.8,
+          "priceCents": 313200,
+          "totalCents": 38147760,
+          "createdAt": "2026-08-10T12:18:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_xau_buy_2",
+          "asset": "XAU",
+          "side": "buy",
+          "quantity": 88.2,
+          "priceCents": 351360,
+          "totalCents": 30989952,
+          "createdAt": "2026-09-11T13:22:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 81.2,
+          "priceCents": 201375,
+          "totalCents": 16351650,
+          "createdAt": "2026-08-14T15:29:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 58.8,
+          "priceCents": 223650,
+          "totalCents": 13150620,
+          "createdAt": "2026-09-16T15:35:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "macro_mike_post_1",
+          "body": "BTC and gold are both in my portfolio for different reasons. If your entire macro thesis changes whenever a coin pumps, it might just be a watchlist.",
+          "createdAt": "2026-10-11T09:09:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-11T16:11:00.000Z"
+            },
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-11T17:12:00.000Z"
+            },
+            {
+              "username": "ben_hodl",
+              "createdAt": "2026-10-11T18:13:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "satsandcharts",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-11T18:13:00.000Z"
+            }
+          ],
+          "asset": "BTC"
+        },
+        {
+          "key": "macro_mike_post_2",
+          "body": "Opened this BTC tranche before adding the rest. Keeping the entry here so the eventual victory lap has an actual receipt attached.",
+          "createdAt": "2026-10-13T10:16:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-13T16:16:00.000Z"
+            },
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-13T17:17:00.000Z"
+            },
+            {
+              "username": "mia_markets",
+              "createdAt": "2026-10-13T18:18:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "solstice_sam",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-13T18:16:00.000Z"
+            }
+          ],
+          "trade": "macro_mike_btc_buy_1"
+        },
+        {
+          "key": "macro_mike_post_3",
+          "body": "Rejected a salary increase today. I refuse to let guaranteed monthly income weaken my hunger. Payroll say this is the first time anyone has described missing rent as an edge.",
+          "createdAt": "2026-10-15T11:23:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-15T16:21:00.000Z"
+            },
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-15T17:22:00.000Z"
+            },
+            {
+              "username": "ryan_stack",
+              "createdAt": "2026-10-15T18:23:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_post_4",
+          "body": "The gold purchase from my allocation rebalance. Less exciting than a dog token, but it has never needed an emergency community call.",
+          "createdAt": "2026-10-17T12:30:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-17T16:26:00.000Z"
+            },
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-17T17:27:00.000Z"
+            },
+            {
+              "username": "sofia_spot",
+              "createdAt": "2026-10-17T18:28:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "coinclaire",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-17T18:22:00.000Z"
+            }
+          ],
+          "trade": "macro_mike_xau_buy_1"
+        },
+        {
+          "key": "macro_mike_post_5",
+          "body": "Three rules: protect capital, size positions, and never explain a losing trade using a photo of yourself on a rented yacht.",
+          "createdAt": "2026-10-19T13:37:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-19T16:31:00.000Z"
+            },
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-19T17:32:00.000Z"
+            },
+            {
+              "username": "theo_ticker",
+              "createdAt": "2026-10-19T18:33:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "macro_mike_post_6",
+          "body": "Honoured to announce I have been named a Top Voice in Wealth Creation by a website I registered yesterday. Humbled. Relentless. Invoice attached.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 824,
+          "comments": [
+            {
+              "username": "coinclaire",
+              "body": "Congratulations on this completely independent recognition.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "macro_mike_post_7",
+          "body": "Sharing the original BTC buy again because a follower asked about the entry. Position size matters more than the motivational caption.",
+          "trade": "macro_mike_btc_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 231,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "ethereal_eve",
+      "followerCount": 28700,
+      "transfers": [
+        {
+          "to": "mia_markets",
+          "asset": "ETH",
+          "quantity": 0.88,
+          "createdAt": "2026-10-04T15:22:00.000Z"
+        },
+        {
+          "to": "leah_ledger",
+          "asset": "ETH",
+          "quantity": 0.4,
+          "createdAt": "2026-10-14T13:12:00.000Z"
+        }
+      ],
+      "email": "ethereal.eve@trading1337.test",
+      "password": "Quartz-19-ethe",
+      "name": "Evelyn Brooks",
+      "walletAddress": "0xeed351d23ffc67eee7dd4ad50dfb6012fdb04633",
+      "bio": "Ethereum ecosystem and on-chain market structure.",
+      "cashCents": 12000000,
+      "createdAt": "2026-06-07T10:14:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 800,
+          "averageCostCents": 207000
+        },
+        {
+          "asset": "BTC",
+          "quantity": 5,
+          "averageCostCents": 6426000
+        },
+        {
+          "asset": "LINK",
+          "quantity": 25000,
+          "averageCostCents": 1164
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-04T10:10:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-05T11:19:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-06T12:28:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-07T09:14:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-10T10:19:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-13T11:24:00.000Z"
+        },
+        {
+          "username": "luna_lee",
+          "createdAt": "2026-07-16T12:29:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ethereal_eve_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 464,
+          "priceCents": 195750,
+          "totalCents": 90828000,
+          "createdAt": "2026-08-08T09:14:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-04T12:06:00.000Z"
+            },
+            {
+              "username": "luna_lee",
+              "createdAt": "2026-10-05T09:10:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ada_ava",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-05T14:14:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ethereal_eve_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 336,
+          "priceCents": 219600,
+          "totalCents": 73785600,
+          "createdAt": "2026-09-09T11:18:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 2.9,
+          "priceCents": 6086000,
+          "totalCents": 17649400,
+          "createdAt": "2026-08-12T12:25:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 2.1,
+          "priceCents": 6759200,
+          "totalCents": 14194320,
+          "createdAt": "2026-09-14T13:31:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_link_buy_1",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 14500,
+          "priceCents": 984,
+          "totalCents": 14268000,
+          "createdAt": "2026-08-16T15:36:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_link_buy_2",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 10500,
+          "priceCents": 1214,
+          "totalCents": 12747000,
+          "createdAt": "2026-09-19T15:44:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "ethereal_eve_post_1",
+          "body": "ETH looks interesting here, but interesting is not the same as an entry. Watching whether buyers can hold the next pullback.",
+          "createdAt": "2026-10-10T10:18:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-10T16:22:00.000Z"
+            },
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-10T17:23:00.000Z"
+            },
+            {
+              "username": "sofia_spot",
+              "createdAt": "2026-10-10T18:24:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "solstice_sam",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-10T18:26:00.000Z"
+            }
+          ],
+          "asset": "ETH"
+        },
+        {
+          "key": "ethereal_eve_post_2",
+          "body": "My first ETH fill in this position. I added in stages; the screenshots showing only the best fill would tell a much nicer story.",
+          "createdAt": "2026-10-12T11:25:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-12T16:27:00.000Z"
+            },
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-12T17:28:00.000Z"
+            },
+            {
+              "username": "theo_ticker",
+              "createdAt": "2026-10-12T18:29:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "chainlink_liv",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-12T18:29:00.000Z"
+            }
+          ],
+          "trade": "ethereal_eve_eth_buy_1"
+        },
+        {
+          "key": "ethereal_eve_post_3",
+          "body": "Sold my productivity app subscription to buy more crypto. Now I lose money without calendar reminders. Frictionless.",
+          "createdAt": "2026-10-14T12:32:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-14T16:32:00.000Z"
+            },
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-14T17:33:00.000Z"
+            },
+            {
+              "username": "jade_journal",
+              "createdAt": "2026-10-14T18:34:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_post_4",
+          "body": "This BTC buy was a separate allocation decision, not me abandoning ETH after one red afternoon.",
+          "createdAt": "2026-10-16T13:39:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-16T16:37:00.000Z"
+            },
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-16T17:38:00.000Z"
+            },
+            {
+              "username": "omar_orders",
+              "createdAt": "2026-10-16T18:39:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ada_ava",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-16T18:35:00.000Z"
+            }
+          ],
+          "trade": "ethereal_eve_btc_buy_1"
+        },
+        {
+          "key": "ethereal_eve_post_5",
+          "body": "Taking a screen-free evening. My positions will still be there tomorrow and staring at them has not once improved the price.",
+          "createdAt": "2026-10-18T14:46:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-18T16:42:00.000Z"
+            },
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-18T17:43:00.000Z"
+            },
+            {
+              "username": "elle_entry",
+              "createdAt": "2026-10-18T18:44:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ethereal_eve_post_6",
+          "body": "Someone sent me a 47-minute voice note explaining why their coin cannot go down. I checked the chart halfway through. It had gone down.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 416,
+          "comments": [
+            {
+              "username": "luna_lee",
+              "body": "The voice note is now 53 minutes and the thesis is stronger than ever.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ethereal_eve_post_7",
+          "body": "ETH entry from the longer-term book. No leverage, no secret indicator, and no paid group required to see the order.",
+          "trade": "ethereal_eve_eth_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 298,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "satsandcharts",
+      "followerCount": 24100,
+      "transfers": [
+        {
+          "to": "sofia_spot",
+          "asset": "BTC",
+          "quantity": 0.0308,
+          "createdAt": "2026-10-05T16:33:00.000Z"
+        },
+        {
+          "to": "chloe_charts",
+          "asset": "BTC",
+          "quantity": 0.0176,
+          "createdAt": "2026-10-15T14:23:00.000Z"
+        }
+      ],
+      "email": "satsandcharts@trading1337.test",
+      "password": "Maple-20-sats",
+      "name": "Priya Shah",
+      "walletAddress": "0x7bc0d908be5c03eb61aef6458fb442beb7fb4df2",
+      "bio": "Charts, levels and a long-term Bitcoin bias.",
+      "cashCents": 19476000,
+      "createdAt": "2026-07-10T11:21:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 22,
+          "averageCostCents": 6426000
+        },
+        {
+          "asset": "BNB",
+          "quantity": 500,
+          "averageCostCents": 54320
+        },
+        {
+          "asset": "ETH",
+          "quantity": 80,
+          "averageCostCents": 223875
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-05T10:15:00.000Z"
+        },
+        {
+          "asset": "BNB",
+          "createdAt": "2026-07-06T11:24:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-07T12:33:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-08T09:21:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-11T10:26:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-14T11:31:00.000Z"
+        },
+        {
+          "username": "ben_hodl",
+          "createdAt": "2026-07-17T12:36:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "satsandcharts_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 12.76,
+          "priceCents": 6086000,
+          "totalCents": 77657360,
+          "createdAt": "2026-08-10T09:21:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-05T12:09:00.000Z"
+            },
+            {
+              "username": "ben_hodl",
+              "createdAt": "2026-10-06T09:15:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ripplewatch",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-06T14:21:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "satsandcharts_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 9.24,
+          "priceCents": 6759200,
+          "totalCents": 62455008,
+          "createdAt": "2026-09-12T11:27:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_bnb_buy_1",
+          "asset": "BNB",
+          "side": "buy",
+          "quantity": 290,
+          "priceCents": 45920,
+          "totalCents": 13316800,
+          "createdAt": "2026-08-14T12:32:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_bnb_buy_2",
+          "asset": "BNB",
+          "side": "buy",
+          "quantity": 210,
+          "priceCents": 56672,
+          "totalCents": 11901120,
+          "createdAt": "2026-09-17T13:40:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 69.6,
+          "priceCents": 190125,
+          "totalCents": 13232700,
+          "createdAt": "2026-08-18T15:43:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 50.4,
+          "priceCents": 211500,
+          "totalCents": 10659600,
+          "createdAt": "2026-09-22T15:53:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_eth_loss_exit",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 40,
+          "priceCents": 111900,
+          "totalCents": 4476000,
+          "createdAt": "2026-10-21T16:20:00.000Z",
+          "likeCount": 604,
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "satsandcharts_post_1",
+          "body": "BTC is still inside the range. I have drawn enough lines that one of them will eventually be support. That is called confluence.",
+          "createdAt": "2026-10-11T11:27:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-11T16:33:00.000Z"
+            },
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-11T17:34:00.000Z"
+            },
+            {
+              "username": "omar_orders",
+              "createdAt": "2026-10-11T18:35:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "chainlink_liv",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-11T18:39:00.000Z"
+            }
+          ],
+          "asset": "BTC"
+        },
+        {
+          "key": "satsandcharts_post_2",
+          "body": "Original BTC entry. Before anyone asks, the arrow pointing up was added after the purchase. I am a trader, not a time traveller.",
+          "createdAt": "2026-10-13T12:34:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-13T16:38:00.000Z"
+            },
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-13T17:39:00.000Z"
+            },
+            {
+              "username": "elle_entry",
+              "createdAt": "2026-10-13T18:40:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "coinclaire",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-13T18:42:00.000Z"
+            }
+          ],
+          "trade": "satsandcharts_btc_buy_1"
+        },
+        {
+          "key": "satsandcharts_post_3",
+          "body": "I do not have losing trades. I have unpaid internships in price discovery.",
+          "createdAt": "2026-10-15T13:41:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-15T16:43:00.000Z"
+            },
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-15T17:44:00.000Z"
+            },
+            {
+              "username": "max_market",
+              "createdAt": "2026-10-15T18:45:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_post_4",
+          "body": "The BNB buy from the journal. The order is real; the claim that I felt absolutely no fear is a branding decision.",
+          "createdAt": "2026-10-17T14:48:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-17T16:48:00.000Z"
+            },
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-17T17:49:00.000Z"
+            },
+            {
+              "username": "priya_portfolio",
+              "createdAt": "2026-10-17T18:50:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ripplewatch",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-17T18:48:00.000Z"
+            }
+          ],
+          "trade": "satsandcharts_bnb_buy_1"
+        },
+        {
+          "key": "satsandcharts_post_5",
+          "body": "My private group has a strict no-refunds policy because conviction is the most important thing in markets. Especially my conviction that I already spent the subscription fees.",
+          "createdAt": "2026-10-19T15:55:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-19T16:53:00.000Z"
+            },
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-19T17:54:00.000Z"
+            },
+            {
+              "username": "noah_nodes",
+              "createdAt": "2026-10-19T18:55:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "satsandcharts_post_6",
+          "body": "People call me a grifter. Incorrect. I am a founder-led educational liquidity redistribution ecosystem. The difference is the font on the invoice.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 1240,
+          "comments": [
+            {
+              "username": "bytebroker",
+              "body": "You have successfully disrupted having money.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "satsandcharts_post_7",
+          "body": "Sold 40 ETH for EUR 44,760 against a EUR 89,550 cost basis. A EUR 44,790 loss. Deliberate. This proves how committed I am to being a grifter: even my own exit liquidity is me. Masterclass link in bio.",
+          "trade": "satsandcharts_eth_loss_exit",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 883,
+          "comments": [
+            {
+              "username": "nora_chain",
+              "body": "That is a very expensive way to prove a point nobody disputed.",
+              "createdAt": "2026-10-21T18:42:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "username": "solstice_sam",
+      "followerCount": 19600,
+      "transfers": [
+        {
+          "to": "jade_journal",
+          "asset": "SOL",
+          "quantity": 4.5,
+          "createdAt": "2026-10-06T17:44:00.000Z"
+        },
+        {
+          "to": "aisha_alpha",
+          "asset": "SOL",
+          "quantity": 9.9,
+          "createdAt": "2026-10-16T15:34:00.000Z"
+        }
+      ],
+      "email": "solstice.sam@trading1337.test",
+      "password": "Orbit-21-sols",
+      "name": "Sam Okafor",
+      "walletAddress": "0xab466086de15ccb1cc10a912056f63ba3d54ba48",
+      "bio": "Solana markets, momentum and ecosystem activity.",
+      "cashCents": 10000000,
+      "createdAt": "2026-06-13T12:28:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 9000,
+          "averageCostCents": 12125
+        },
+        {
+          "asset": "BTC",
+          "quantity": 4,
+          "averageCostCents": 6766000
+        },
+        {
+          "asset": "AVAX",
+          "quantity": 15000,
+          "averageCostCents": 1836
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-06T10:20:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-07T11:29:00.000Z"
+        },
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-08T12:38:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-09T13:47:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-09T09:28:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-12T10:33:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-15T11:38:00.000Z"
+        },
+        {
+          "username": "mia_markets",
+          "createdAt": "2026-07-18T12:43:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "solstice_sam_sol_buy_1",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 5220,
+          "priceCents": 10250,
+          "totalCents": 53505000,
+          "createdAt": "2026-08-12T09:28:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-06T12:12:00.000Z"
+            },
+            {
+              "username": "mia_markets",
+              "createdAt": "2026-10-07T09:20:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "avalanche_alex",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-07T14:28:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "solstice_sam_sol_buy_2",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 3780,
+          "priceCents": 12650,
+          "totalCents": 47817000,
+          "createdAt": "2026-09-15T11:36:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 2.32,
+          "priceCents": 5746000,
+          "totalCents": 13330720,
+          "createdAt": "2026-08-16T12:39:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 1.68,
+          "priceCents": 6392000,
+          "totalCents": 10738560,
+          "createdAt": "2026-09-20T13:49:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_avax_buy_1",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 8700,
+          "priceCents": 1566,
+          "totalCents": 13624200,
+          "createdAt": "2026-08-20T15:50:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_avax_buy_2",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 6300,
+          "priceCents": 1724,
+          "totalCents": 10861200,
+          "createdAt": "2026-09-25T15:02:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "solstice_sam_post_1",
+          "body": "SOL has momentum, but I want to see the pullback hold before adding. Fast candles do not make my risk limit any larger.",
+          "createdAt": "2026-10-10T12:36:00.000Z",
+          "likes": [
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-10T16:44:00.000Z"
+            },
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-10T17:45:00.000Z"
+            },
+            {
+              "username": "priya_portfolio",
+              "createdAt": "2026-10-10T18:46:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "coinclaire",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-10T18:52:00.000Z"
+            }
+          ],
+          "asset": "SOL"
+        },
+        {
+          "key": "solstice_sam_post_2",
+          "body": "First SOL buy for this position. I did not deploy everything at once, despite what my extremely confident posts may have suggested.",
+          "createdAt": "2026-10-12T13:43:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-12T16:49:00.000Z"
+            },
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-12T17:50:00.000Z"
+            },
+            {
+              "username": "noah_nodes",
+              "createdAt": "2026-10-12T18:51:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ada_ava",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-12T18:55:00.000Z"
+            }
+          ],
+          "trade": "solstice_sam_sol_buy_1"
+        },
+        {
+          "key": "solstice_sam_post_3",
+          "body": "Bullish on the ecosystem. Which ecosystem? Please give me a minute, the sponsored brief has not arrived yet.",
+          "createdAt": "2026-10-14T14:50:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-14T16:54:00.000Z"
+            },
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-14T17:55:00.000Z"
+            },
+            {
+              "username": "isla_index",
+              "createdAt": "2026-10-14T18:56:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_post_4",
+          "body": "Bought some BTC alongside the SOL position. Diversification is when two different assets ruin your afternoon.",
+          "createdAt": "2026-10-16T15:57:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-16T16:59:00.000Z"
+            },
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-16T17:00:00.000Z"
+            },
+            {
+              "username": "kai_candle",
+              "createdAt": "2026-10-16T18:01:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "avalanche_alex",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-16T18:01:00.000Z"
+            }
+          ],
+          "trade": "solstice_sam_btc_buy_1"
+        },
+        {
+          "key": "solstice_sam_post_5",
+          "body": "No trade today. Sometimes the most sophisticated thing you can do is close the laptop and make lunch.",
+          "createdAt": "2026-10-18T16:04:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-18T16:04:00.000Z"
+            },
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-18T17:05:00.000Z"
+            },
+            {
+              "username": "ruby_returns",
+              "createdAt": "2026-10-18T18:06:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "solstice_sam_post_6",
+          "body": "I asked the community if I should sell. They said diamond hands. I asked if they would pay my electricity bill. Community engagement fell 94%.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 356,
+          "comments": [
+            {
+              "username": "mia_markets",
+              "body": "The community remains bullish on you paying your own bills.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "solstice_sam_post_7",
+          "body": "SOL entry attached for context. It was a spot buy. Please stop copying it into a leveraged position and then asking me where the emergency exit is.",
+          "trade": "solstice_sam_sol_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 197,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "chainlink_liv",
+      "followerCount": 17200,
+      "transfers": [
+        {
+          "to": "elle_entry",
+          "asset": "LINK",
+          "quantity": 68,
+          "createdAt": "2026-10-07T18:55:00.000Z"
+        }
+      ],
+      "email": "chainlink.liv@trading1337.test",
+      "password": "Velvet-22-chai",
+      "name": "Olivia Chen",
+      "walletAddress": "0x85146a1c7ccbd7bdf5332b0322d47af233327fd0",
+      "bio": "Infrastructure projects, LINK and technical levels.",
+      "cashCents": 8000000,
+      "createdAt": "2026-07-16T13:35:00.000Z",
+      "holdings": [
+        {
+          "asset": "LINK",
+          "quantity": 85000,
+          "averageCostCents": 1194
+        },
+        {
+          "asset": "ETH",
+          "quantity": 250,
+          "averageCostCents": 229500
+        },
+        {
+          "asset": "BTC",
+          "quantity": 3,
+          "averageCostCents": 5916000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-07T10:25:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-08T11:34:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-09T12:43:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-10T09:35:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-13T10:40:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-16T11:45:00.000Z"
+        },
+        {
+          "username": "ryan_stack",
+          "createdAt": "2026-07-19T12:50:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "chainlink_liv_link_buy_1",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 49300,
+          "priceCents": 1014,
+          "totalCents": 49990200,
+          "createdAt": "2026-08-14T09:35:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-07T12:15:00.000Z"
+            },
+            {
+              "username": "ryan_stack",
+              "createdAt": "2026-10-08T09:25:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "nora_chain",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-08T14:35:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "chainlink_liv_link_buy_2",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 35700,
+          "priceCents": 1128,
+          "totalCents": 40269600,
+          "createdAt": "2026-09-18T11:45:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 145,
+          "priceCents": 195750,
+          "totalCents": 28383750,
+          "createdAt": "2026-08-18T12:46:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 105,
+          "priceCents": 215550,
+          "totalCents": 22632750,
+          "createdAt": "2026-09-23T13:58:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 1.74,
+          "priceCents": 6086000,
+          "totalCents": 10589640,
+          "createdAt": "2026-08-22T15:57:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 1.26,
+          "priceCents": 6636800,
+          "totalCents": 8362368,
+          "createdAt": "2026-09-03T15:11:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "chainlink_liv_post_1",
+          "body": "LINK is testing the same area again. I am watching actual demand rather than treating every enterprise announcement as a buy signal.",
+          "createdAt": "2026-10-11T13:45:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-11T16:55:00.000Z"
+            },
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-11T17:56:00.000Z"
+            },
+            {
+              "username": "kai_candle",
+              "createdAt": "2026-10-11T18:57:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ada_ava",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-11T18:05:00.000Z"
+            }
+          ],
+          "asset": "LINK"
+        },
+        {
+          "key": "chainlink_liv_post_2",
+          "body": "The first LINK tranche. There was a plan for a second entry before I clicked buy; I did not invent the plan after the drawdown.",
+          "createdAt": "2026-10-13T14:52:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-13T16:00:00.000Z"
+            },
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-13T17:01:00.000Z"
+            },
+            {
+              "username": "ruby_returns",
+              "createdAt": "2026-10-13T18:02:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ripplewatch",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-13T18:08:00.000Z"
+            }
+          ],
+          "trade": "chainlink_liv_link_buy_1"
+        },
+        {
+          "key": "chainlink_liv_post_3",
+          "body": "Proud to announce a strategic partnership between my portfolio and the colour red. Multi-year agreement. Neither party can afford to leave.",
+          "createdAt": "2026-10-15T15:59:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-15T16:05:00.000Z"
+            },
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-15T17:06:00.000Z"
+            },
+            {
+              "username": "finn_finance",
+              "createdAt": "2026-10-15T18:07:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_post_4",
+          "body": "Added ETH as a separate position. Not every purchase needs an eighteen-post thread explaining why civilisation depends on it.",
+          "createdAt": "2026-10-17T16:06:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-17T16:10:00.000Z"
+            },
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-17T17:11:00.000Z"
+            },
+            {
+              "username": "zara_zone",
+              "createdAt": "2026-10-17T18:12:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "nora_chain",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-17T18:14:00.000Z"
+            }
+          ],
+          "trade": "chainlink_liv_eth_buy_1"
+        },
+        {
+          "key": "chainlink_liv_post_5",
+          "body": "If the only explanation for a project is that the announcement of the partnership will be announced soon, I can wait.",
+          "createdAt": "2026-10-19T17:13:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-19T17:23:00.000Z"
+            },
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-19T17:16:00.000Z"
+            },
+            {
+              "username": "liam_levels",
+              "createdAt": "2026-10-19T18:17:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "chainlink_liv_post_6",
+          "body": "My oracle has confirmed that the price is lower than when I bought it. Incredible technology. Wish it had mentioned this earlier.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 683,
+          "comments": [
+            {
+              "username": "omar_orders",
+              "body": "Was the partnership signed before or after the margin call?",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "chainlink_liv_post_7",
+          "body": "LINK order from the journal. Still tracking this entry rather than moving the starting point every time I post a performance update.",
+          "trade": "chainlink_liv_link_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 244,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "coinclaire",
+      "followerCount": 14800,
+      "transfers": [
+        {
+          "to": "priya_portfolio",
+          "asset": "BTC",
+          "quantity": 0.0088,
+          "createdAt": "2026-10-08T13:06:00.000Z"
+        }
+      ],
+      "email": "coinclaire@trading1337.test",
+      "password": "Summit-23-coin",
+      "name": "Claire Murphy",
+      "walletAddress": "0x3ab045d23a4b20ddfcb116957354613204a0bfe4",
+      "bio": "Balanced portfolios, simple setups and transparent updates.",
+      "cashCents": 20000000,
+      "createdAt": "2026-06-19T14:42:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 8,
+          "averageCostCents": 6936000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 180,
+          "averageCostCents": 195750
+        },
+        {
+          "asset": "SOL",
+          "quantity": 3000,
+          "averageCostCents": 11188
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-08T10:30:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-09T11:39:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-10T12:48:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-11T09:42:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-14T10:47:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-17T11:52:00.000Z"
+        },
+        {
+          "username": "sofia_spot",
+          "createdAt": "2026-07-20T12:57:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "coinclaire_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 4.64,
+          "priceCents": 5916000,
+          "totalCents": 27450240,
+          "createdAt": "2026-08-16T09:42:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-08T12:18:00.000Z"
+            },
+            {
+              "username": "sofia_spot",
+              "createdAt": "2026-10-09T09:30:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "macro_mike",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-09T14:42:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "coinclaire_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 3.36,
+          "priceCents": 6514400,
+          "totalCents": 21888384,
+          "createdAt": "2026-09-21T11:54:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 104.4,
+          "priceCents": 201375,
+          "totalCents": 21023550,
+          "createdAt": "2026-08-20T12:53:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 75.6,
+          "priceCents": 219600,
+          "totalCents": 16601760,
+          "createdAt": "2026-09-26T13:07:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_sol_buy_1",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 1740,
+          "priceCents": 10250,
+          "totalCents": 17835000,
+          "createdAt": "2026-08-24T15:04:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_sol_buy_2",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 1260,
+          "priceCents": 12425,
+          "totalCents": 15655500,
+          "createdAt": "2026-09-06T15:20:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "coinclaire_post_1",
+          "body": "BTC liquidity is thinner than the confident price targets suggest. Keeping the position size boring until that changes.",
+          "createdAt": "2026-10-10T14:54:00.000Z",
+          "likes": [
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-10T16:06:00.000Z"
+            },
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-10T17:07:00.000Z"
+            },
+            {
+              "username": "zara_zone",
+              "createdAt": "2026-10-10T18:08:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ripplewatch",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-10T18:18:00.000Z"
+            }
+          ],
+          "asset": "BTC"
+        },
+        {
+          "key": "coinclaire_post_2",
+          "body": "My original BTC buy. Posting entries is easy; I am keeping the exits and changes of mind in the journal too.",
+          "createdAt": "2026-10-12T15:01:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-12T16:11:00.000Z"
+            },
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-12T17:12:00.000Z"
+            },
+            {
+              "username": "liam_levels",
+              "createdAt": "2026-10-12T18:13:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "avalanche_alex",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-12T18:21:00.000Z"
+            }
+          ],
+          "trade": "coinclaire_btc_buy_1"
+        },
+        {
+          "key": "coinclaire_post_3",
+          "body": "Full disclosure: this post is sponsored by my urgent need to look employable if the next candle is red.",
+          "createdAt": "2026-10-14T16:08:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-14T16:16:00.000Z"
+            },
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-14T17:17:00.000Z"
+            },
+            {
+              "username": "maya_moves",
+              "createdAt": "2026-10-14T18:18:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_post_4",
+          "body": "This was an ETH buy, not a BTC sale. Putting the actual receipt next to the commentary saves everyone a lot of guesswork.",
+          "createdAt": "2026-10-16T17:15:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-16T17:25:00.000Z"
+            },
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-16T17:22:00.000Z"
+            },
+            {
+              "username": "ethan_euro",
+              "createdAt": "2026-10-16T18:23:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "macro_mike",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-16T18:27:00.000Z"
+            }
+          ],
+          "trade": "coinclaire_eth_buy_1"
+        },
+        {
+          "key": "coinclaire_post_5",
+          "body": "You can like a project and still sell some of it. A portfolio is not a wedding vow.",
+          "createdAt": "2026-10-18T18:22:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-18T18:32:00.000Z"
+            },
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-18T18:42:00.000Z"
+            },
+            {
+              "username": "nina_numbers",
+              "createdAt": "2026-10-18T18:28:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "coinclaire_post_6",
+          "body": "My course on passive income is nearly ready. All that remains is filming, editing, marketing, customer support and explaining why none of this is passive.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 529,
+          "comments": [
+            {
+              "username": "jade_journal",
+              "body": "Please make the module about answering refund emails a practical workshop.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "coinclaire_post_7",
+          "body": "BTC entry attached. I was comfortable with the amount at the time; that is more useful context than claiming I was certain about the next move.",
+          "trade": "coinclaire_btc_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 307,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "ada_ava",
+      "followerCount": 12300,
+      "transfers": [
+        {
+          "to": "isla_index",
+          "asset": "ADA",
+          "quantity": 4200,
+          "createdAt": "2026-10-09T14:17:00.000Z"
+        }
+      ],
+      "email": "ada.ava@trading1337.test",
+      "password": "Copper-24-ada_",
+      "name": "Ava Williams",
+      "walletAddress": "0xd702ab4873e8218dac2f28806a3cf459b0d452af",
+      "bio": "Cardano, majors and methodical swing trades.",
+      "cashCents": 7000000,
+      "createdAt": "2026-07-22T15:49:00.000Z",
+      "holdings": [
+        {
+          "asset": "ADA",
+          "quantity": 3000000,
+          "averageCostCents": 19
+        },
+        {
+          "asset": "BTC",
+          "quantity": 4,
+          "averageCostCents": 6086000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 300,
+          "averageCostCents": 207000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-09T10:35:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-10T11:44:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-11T12:53:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-12T09:49:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-15T10:54:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-18T11:59:00.000Z"
+        },
+        {
+          "username": "theo_ticker",
+          "createdAt": "2026-07-21T12:04:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ada_ava_ada_buy_1",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 1740000,
+          "priceCents": 20,
+          "totalCents": 34800000,
+          "createdAt": "2026-08-18T09:49:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-09T12:21:00.000Z"
+            },
+            {
+              "username": "theo_ticker",
+              "createdAt": "2026-10-10T09:35:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ethereal_eve",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-10T14:49:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ada_ava_ada_buy_2",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 1260000,
+          "priceCents": 21,
+          "totalCents": 26460000,
+          "createdAt": "2026-09-24T11:03:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 2.32,
+          "priceCents": 5576000,
+          "totalCents": 12936320,
+          "createdAt": "2026-08-22T12:00:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 1.68,
+          "priceCents": 6759200,
+          "totalCents": 11355456,
+          "createdAt": "2026-09-04T13:16:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 174,
+          "priceCents": 190125,
+          "totalCents": 33081750,
+          "createdAt": "2026-08-26T15:11:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 126,
+          "priceCents": 227700,
+          "totalCents": 28690200,
+          "createdAt": "2026-09-09T15:29:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "ada_ava_post_1",
+          "body": "ADA has held this area a few times. That is useful information, not a guarantee that it will hold on the next attempt.",
+          "createdAt": "2026-10-11T15:03:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-11T16:17:00.000Z"
+            },
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-11T17:18:00.000Z"
+            },
+            {
+              "username": "ethan_euro",
+              "createdAt": "2026-10-11T18:19:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "avalanche_alex",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-11T18:31:00.000Z"
+            }
+          ],
+          "asset": "ADA"
+        },
+        {
+          "key": "ada_ava_post_2",
+          "body": "The ADA entry behind the position. Long-term does not mean I am forbidden from looking at whether the thesis still makes sense.",
+          "createdAt": "2026-10-13T16:10:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-13T16:22:00.000Z"
+            },
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-13T17:23:00.000Z"
+            },
+            {
+              "username": "nina_numbers",
+              "createdAt": "2026-10-13T18:24:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "nora_chain",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-13T18:34:00.000Z"
+            }
+          ],
+          "trade": "ada_ava_ada_buy_1"
+        },
+        {
+          "key": "ada_ava_post_3",
+          "body": "Our roadmap has entered the phase where we announce the date of the announcement of the revised roadmap. Early. So early.",
+          "createdAt": "2026-10-15T17:17:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-15T17:27:00.000Z"
+            },
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-15T17:28:00.000Z"
+            },
+            {
+              "username": "adam_assets",
+              "createdAt": "2026-10-15T18:29:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_post_4",
+          "body": "Added BTC separately from ADA. Neither ticker has promised to reimburse me for loyalty.",
+          "createdAt": "2026-10-17T18:24:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-17T18:34:00.000Z"
+            },
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-17T18:44:00.000Z"
+            },
+            {
+              "username": "leah_ledger",
+              "createdAt": "2026-10-17T18:34:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ethereal_eve",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-17T18:40:00.000Z"
+            }
+          ],
+          "trade": "ada_ava_btc_buy_1"
+        },
+        {
+          "key": "ada_ava_post_5",
+          "body": "A quiet week is fine. I would rather read an actual release note than another thread demanding I hold harder.",
+          "createdAt": "2026-10-19T08:31:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-19T16:37:00.000Z"
+            },
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-19T17:38:00.000Z"
+            },
+            {
+              "username": "samir_spot",
+              "createdAt": "2026-10-19T18:39:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ada_ava_post_6",
+          "body": "Bought a little more time in the market. My friends bought houses. Different asset classes, different journeys, please stop sending me floor plans.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 392,
+          "comments": [
+            {
+              "username": "ben_hodl",
+              "body": "The floor plan has excellent support around the kitchen.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ada_ava_post_7",
+          "body": "ADA order for the journal. A planned entry, not evidence that the next three years are already priced into my personality.",
+          "trade": "ada_ava_ada_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 166,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "ripplewatch",
+      "followerCount": 9700,
+      "transfers": [
+        {
+          "to": "ruby_returns",
+          "asset": "XRP",
+          "quantity": 1000,
+          "createdAt": "2026-10-10T15:28:00.000Z"
+        }
+      ],
+      "email": "ripplewatch@trading1337.test",
+      "password": "Atlas-25-ripp",
+      "name": "Leo Martinez",
+      "walletAddress": "0xefa747d16434af136259909d529d72697bba980f",
+      "bio": "XRP price action and cross-market momentum.",
+      "cashCents": 8000000,
+      "createdAt": "2026-06-25T16:56:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 2000000,
+          "averageCostCents": 39
+        },
+        {
+          "asset": "BTC",
+          "quantity": 6,
+          "averageCostCents": 6256000
+        },
+        {
+          "asset": "ADA",
+          "quantity": 1000000,
+          "averageCostCents": 21
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-10T10:40:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-11T11:49:00.000Z"
+        },
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-12T12:58:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-13T13:07:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-13T09:56:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-16T10:01:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-19T11:06:00.000Z"
+        },
+        {
+          "username": "jade_journal",
+          "createdAt": "2026-07-22T12:11:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ripplewatch_xrp_buy_1",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 1160000,
+          "priceCents": 36,
+          "totalCents": 41760000,
+          "createdAt": "2026-08-20T09:56:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-10T12:24:00.000Z"
+            },
+            {
+              "username": "jade_journal",
+              "createdAt": "2026-10-11T09:40:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "satsandcharts",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-11T14:56:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ripplewatch_xrp_buy_2",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 840000,
+          "priceCents": 44,
+          "totalCents": 36960000,
+          "createdAt": "2026-09-27T11:12:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_btc_buy_1",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 3.48,
+          "priceCents": 5746000,
+          "totalCents": 19996080,
+          "createdAt": "2026-08-24T12:07:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_btc_buy_2",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 2.52,
+          "priceCents": 6881600,
+          "totalCents": 17341632,
+          "createdAt": "2026-09-07T13:25:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_ada_buy_1",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 580000,
+          "priceCents": 19,
+          "totalCents": 11020000,
+          "createdAt": "2026-08-04T15:18:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_ada_buy_2",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 420000,
+          "priceCents": 21,
+          "totalCents": 8820000,
+          "createdAt": "2026-09-12T15:38:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "ripplewatch_post_1",
+          "body": "Watching XRP volume around this level. A recycled headline is not fresh buying pressure, however many exclamation marks it has.",
+          "createdAt": "2026-10-10T16:12:00.000Z",
+          "likes": [
+            {
+              "username": "avalanche_alex",
+              "createdAt": "2026-10-10T16:28:00.000Z"
+            },
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-10T17:29:00.000Z"
+            },
+            {
+              "username": "leah_ledger",
+              "createdAt": "2026-10-10T18:30:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "nora_chain",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-10T18:44:00.000Z"
+            }
+          ],
+          "asset": "XRP"
+        },
+        {
+          "key": "ripplewatch_post_2",
+          "body": "The XRP purchase that opened this position. Keeping the execution visible so the discussion is about an actual trade.",
+          "createdAt": "2026-10-12T17:19:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-12T17:29:00.000Z"
+            },
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-12T17:34:00.000Z"
+            },
+            {
+              "username": "samir_spot",
+              "createdAt": "2026-10-12T18:35:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "macro_mike",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-12T18:47:00.000Z"
+            }
+          ],
+          "trade": "ripplewatch_xrp_buy_1"
+        },
+        {
+          "key": "ripplewatch_post_3",
+          "body": "The catalyst is tomorrow. If you are reading this tomorrow, please read it again tomorrow.",
+          "createdAt": "2026-10-14T18:26:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-14T18:36:00.000Z"
+            },
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-14T18:46:00.000Z"
+            },
+            {
+              "username": "chloe_charts",
+              "createdAt": "2026-10-14T18:40:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_post_4",
+          "body": "BTC buy from the same journal. I can hold XRP without making every other asset a personal enemy.",
+          "createdAt": "2026-10-16T08:33:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-16T16:43:00.000Z"
+            },
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-16T17:44:00.000Z"
+            },
+            {
+              "username": "dan_dca",
+              "createdAt": "2026-10-16T18:45:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "satsandcharts",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-16T18:53:00.000Z"
+            }
+          ],
+          "trade": "ripplewatch_btc_buy_1"
+        },
+        {
+          "key": "ripplewatch_post_5",
+          "body": "Still holding, still checking the original reasons. A group chat agreeing with itself is not independent research.",
+          "createdAt": "2026-10-18T09:40:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-18T16:48:00.000Z"
+            },
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-18T17:49:00.000Z"
+            },
+            {
+              "username": "aisha_alpha",
+              "createdAt": "2026-10-18T18:50:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "ripplewatch_post_6",
+          "body": "We are not moving the goalposts. We are tokenising the stadium. Very different. Huge institutional interest, according to a man with a laser-eyed profile picture.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 771,
+          "comments": [
+            {
+              "username": "theo_ticker",
+              "body": "Can confirm: tomorrow has never failed to arrive eventually.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "ripplewatch_post_7",
+          "body": "XRP entry attached. My plan has an exit condition. It is not just a screenshot of someone saying soon.",
+          "trade": "ripplewatch_xrp_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 209,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "avalanche_alex",
+      "followerCount": 8100,
+      "transfers": [
+        {
+          "to": "zara_zone",
+          "asset": "AVAX",
+          "quantity": 36,
+          "createdAt": "2026-10-11T16:39:00.000Z"
+        }
+      ],
+      "email": "avalanche.alex@trading1337.test",
+      "password": "Willow-26-aval",
+      "name": "Alex Novak",
+      "walletAddress": "0xcaa9e84fa316d70ab57ccbd498aace66b5be5451",
+      "bio": "Avalanche markets with a focus on disciplined entries.",
+      "cashCents": 9000000,
+      "createdAt": "2026-07-01T17:03:00.000Z",
+      "holdings": [
+        {
+          "asset": "AVAX",
+          "quantity": 45000,
+          "averageCostCents": 1656
+        },
+        {
+          "asset": "SOL",
+          "quantity": 4500,
+          "averageCostCents": 11813
+        },
+        {
+          "asset": "ETH",
+          "quantity": 200,
+          "averageCostCents": 218250
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-11T10:45:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-12T11:54:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-13T12:03:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-14T13:12:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-14T09:03:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-17T10:08:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-20T11:13:00.000Z"
+        },
+        {
+          "username": "omar_orders",
+          "createdAt": "2026-07-23T12:18:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "avalanche_alex_avax_buy_1",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 26100,
+          "priceCents": 1521,
+          "totalCents": 39698100,
+          "createdAt": "2026-08-22T09:03:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-11T12:27:00.000Z"
+            },
+            {
+              "username": "omar_orders",
+              "createdAt": "2026-10-12T09:45:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "solstice_sam",
+              "body": "Clean entry and sensible size.",
+              "createdAt": "2026-10-12T15:03:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "avalanche_alex_avax_buy_2",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 18900,
+          "priceCents": 1822,
+          "totalCents": 34435800,
+          "createdAt": "2026-09-05T11:21:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_sol_buy_1",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 2610,
+          "priceCents": 10875,
+          "totalCents": 28383750,
+          "createdAt": "2026-08-26T12:14:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_sol_buy_2",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 1890,
+          "priceCents": 11750,
+          "totalCents": 22207500,
+          "createdAt": "2026-09-10T13:34:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_eth_buy_1",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 116,
+          "priceCents": 201375,
+          "totalCents": 23359500,
+          "createdAt": "2026-08-06T15:25:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_eth_buy_2",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 84,
+          "priceCents": 215550,
+          "totalCents": 18106200,
+          "createdAt": "2026-09-15T15:47:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "avalanche_alex_post_1",
+          "body": "AVAX is near the area I am watching, but I want a useful close rather than buying every intraday bounce.",
+          "createdAt": "2026-10-11T17:21:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-11T17:31:00.000Z"
+            },
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-11T17:40:00.000Z"
+            },
+            {
+              "username": "dan_dca",
+              "createdAt": "2026-10-11T18:41:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "macro_mike",
+              "body": "Watching the same level here.",
+              "createdAt": "2026-10-11T18:57:00.000Z"
+            }
+          ],
+          "asset": "AVAX"
+        },
+        {
+          "key": "avalanche_alex_post_2",
+          "body": "First AVAX entry in this position. I sized it before reading the replies, which has done wonders for my blood pressure.",
+          "createdAt": "2026-10-13T18:28:00.000Z",
+          "likes": [
+            {
+              "username": "macro_mike",
+              "createdAt": "2026-10-13T18:38:00.000Z"
+            },
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-13T18:48:00.000Z"
+            },
+            {
+              "username": "aisha_alpha",
+              "createdAt": "2026-10-13T18:46:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "ethereal_eve",
+              "body": "Good context for the entry.",
+              "createdAt": "2026-10-13T19:08:00.000Z"
+            }
+          ],
+          "trade": "avalanche_alex_avax_buy_1"
+        },
+        {
+          "key": "avalanche_alex_post_3",
+          "body": "Humbled to be speaking at another conference about financial freedom. Flights paid for with the last of my financial freedom.",
+          "createdAt": "2026-10-15T08:35:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-15T16:49:00.000Z"
+            },
+            {
+              "username": "chainlink_liv",
+              "createdAt": "2026-10-15T17:50:00.000Z"
+            },
+            {
+              "username": "tom_tokens",
+              "createdAt": "2026-10-15T18:51:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_post_4",
+          "body": "The SOL purchase from the journal. Similar narrative, different position: it still has to earn its place in the portfolio.",
+          "createdAt": "2026-10-17T09:42:00.000Z",
+          "likes": [
+            {
+              "username": "satsandcharts",
+              "createdAt": "2026-10-17T16:54:00.000Z"
+            },
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-17T17:55:00.000Z"
+            },
+            {
+              "username": "lucy_liquidity",
+              "createdAt": "2026-10-17T18:56:00.000Z"
+            }
+          ],
+          "comments": [
+            {
+              "username": "solstice_sam",
+              "body": "I took a smaller position as well.",
+              "createdAt": "2026-10-17T18:06:00.000Z"
+            }
+          ],
+          "trade": "avalanche_alex_sol_buy_1"
+        },
+        {
+          "key": "avalanche_alex_post_5",
+          "body": "Closed the charts for a walk. Market somehow continued operating without my supervision.",
+          "createdAt": "2026-10-19T10:49:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-19T16:59:00.000Z"
+            },
+            {
+              "username": "ada_ava",
+              "createdAt": "2026-10-19T17:00:00.000Z"
+            },
+            {
+              "username": "victor_value",
+              "createdAt": "2026-10-19T18:01:00.000Z"
+            }
+          ],
+          "comments": []
+        },
+        {
+          "key": "avalanche_alex_post_6",
+          "body": "The market has temporarily mispriced my genius. I am launching a newsletter so you can pay to watch it happen in real time.",
+          "createdAt": "2026-10-20T18:00:00.000Z",
+          "likeCount": 458,
+          "comments": [
+            {
+              "username": "sofia_spot",
+              "body": "The market would like to schedule a second round of feedback.",
+              "createdAt": "2026-10-20T18:12:00.000Z"
+            }
+          ]
+        },
+        {
+          "key": "avalanche_alex_post_7",
+          "body": "AVAX buy from the trading journal. Sharing the size and entry because those are the bits a motivational quote usually leaves out.",
+          "trade": "avalanche_alex_avax_buy_1",
+          "createdAt": "2026-10-21T18:30:00.000Z",
+          "likeCount": 182,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "bytebroker",
+      "followerCount": 70,
+      "email": "bytebroker@trading1337.test",
+      "password": "Cedar-27-byte",
+      "name": "Jordan Blake",
+      "walletAddress": "0xbad615408628f0b5b01bdc4f9d0dfce848fb026f",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 1440,
+      "createdAt": "2026-06-04T08:10:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.00102353,
+          "averageCostCents": 6426000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 0.016,
+          "averageCostCents": 218250
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-12T10:50:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-13T11:59:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-15T09:10:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-18T10:15:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "bytebroker_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00112588,
+          "priceCents": 5712000,
+          "totalCents": 6431,
+          "createdAt": "2026-09-02T08:00:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "nora_chain_btc_buy_1"
+        },
+        {
+          "key": "bytebroker_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.016,
+          "priceCents": 198000,
+          "totalCents": 3168,
+          "createdAt": "2026-09-05T12:00:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "bytebroker_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.00010235,
+          "priceCents": 6528000,
+          "totalCents": 668,
+          "createdAt": "2026-10-01T14:00:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "bytebroker_post_1",
+          "asset": "BTC",
+          "body": "Slowly building the BTC position rather than chasing price.",
+          "createdAt": "2026-10-02T13:10:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-03T12:10:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "quiet_saver",
+      "followerCount": 73,
+      "email": "quiet.saver@trading1337.test",
+      "password": "Harbour-28-quie",
+      "name": "Hannah Reed",
+      "walletAddress": "0x3be519547a4e033f7e3fbe17cf5729fb7007aa7d",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 5600,
+      "createdAt": "2026-07-07T09:17:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 0.09022222,
+          "averageCostCents": 218250
+        },
+        {
+          "asset": "LINK",
+          "quantity": 8.75,
+          "averageCostCents": 1194
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-13T10:55:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-14T11:04:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-16T09:17:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-19T10:22:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "quiet_saver_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.09924444,
+          "priceCents": 193500,
+          "totalCents": 19204,
+          "createdAt": "2026-09-03T09:07:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "quiet_saver_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 8.75,
+          "priceCents": 1086,
+          "totalCents": 9503,
+          "createdAt": "2026-09-06T13:11:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "quiet_saver_eth_sell",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 0.00902222,
+          "priceCents": 220050,
+          "totalCents": 1985,
+          "createdAt": "2026-10-02T15:13:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "luna_lee",
+      "followerCount": 76,
+      "email": "luna.lee@trading1337.test",
+      "password": "Quartz-29-luna",
+      "name": "Luna Park",
+      "walletAddress": "0x2197c936b39f2fd5d50801da087e121b154c587d",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 18000,
+      "createdAt": "2026-06-10T10:24:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 4.176,
+          "averageCostCents": 12438
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.00397059,
+          "averageCostCents": 6936000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-14T10:00:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-15T11:09:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-17T09:24:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-20T10:29:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "luna_lee_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 4.5936,
+          "priceCents": 11000,
+          "totalCents": 50530,
+          "createdAt": "2026-09-04T10:14:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "luna_lee_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00397059,
+          "priceCents": 6324000,
+          "totalCents": 25110,
+          "createdAt": "2026-09-07T14:22:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "luna_lee_sol_sell",
+          "asset": "SOL",
+          "side": "sell",
+          "quantity": 0.4176,
+          "priceCents": 12450,
+          "totalCents": 5199,
+          "createdAt": "2026-10-03T16:26:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "ben_hodl",
+      "followerCount": 79,
+      "email": "ben.hodl@trading1337.test",
+      "password": "Maple-30-ben_",
+      "name": "Ben Walsh",
+      "walletAddress": "0xd1a12fbc2c8c11bf448ac3049dd2af295e1174c8",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 43200,
+      "createdAt": "2026-07-13T11:31:00.000Z",
+      "holdings": [
+        {
+          "asset": "ADA",
+          "quantity": 4745.4545,
+          "averageCostCents": 22
+        },
+        {
+          "asset": "ETH",
+          "quantity": 0.24,
+          "averageCostCents": 195750
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-15T10:05:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-16T11:14:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-18T09:31:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-21T10:36:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ben_hodl_ada_buy",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 5220,
+          "priceCents": 20,
+          "totalCents": 104400,
+          "createdAt": "2026-09-05T11:21:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ben_hodl_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.24,
+          "priceCents": 214875,
+          "totalCents": 51570,
+          "createdAt": "2026-09-08T15:33:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ben_hodl_ada_sell",
+          "asset": "ADA",
+          "side": "sell",
+          "quantity": 474.54545,
+          "priceCents": 22,
+          "totalCents": 10440,
+          "createdAt": "2026-10-04T17:39:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "mia_markets",
+      "followerCount": 82,
+      "email": "mia.markets@trading1337.test",
+      "password": "Orbit-31-mia_",
+      "name": "Mia Costa",
+      "walletAddress": "0xd59c7c42a94184d2987d4fa8875f215b4466ce6c",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 50400,
+      "createdAt": "2026-06-16T12:38:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 5536.3636,
+          "averageCostCents": 38
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.01852941,
+          "averageCostCents": 6086000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-16T10:10:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-17T11:19:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-18T12:28:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-19T09:38:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-22T10:43:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "mia_markets_xrp_buy",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 6090,
+          "priceCents": 40,
+          "totalCents": 243600,
+          "createdAt": "2026-09-06T12:28:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "mia_markets_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.01852941,
+          "priceCents": 6664000,
+          "totalCents": 123480,
+          "createdAt": "2026-09-09T16:44:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "mia_markets_xrp_sell",
+          "asset": "XRP",
+          "side": "sell",
+          "quantity": 553.63636,
+          "priceCents": 42,
+          "totalCents": 23253,
+          "createdAt": "2026-10-05T18:52:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "mia_markets_post_1",
+          "asset": "XRP",
+          "body": "The XRP level is interesting, but I want a daily close first.",
+          "createdAt": "2026-10-06T10:38:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-07T12:38:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "ryan_stack",
+      "followerCount": 85,
+      "email": "ryan.stack@trading1337.test",
+      "password": "Velvet-32-ryan",
+      "name": "Ryan Cole",
+      "walletAddress": "0x50f8806a0aa0ef8d227fef2b9fe5afe462bdacd3",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 120000,
+      "createdAt": "2026-07-19T13:45:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOGE",
+          "quantity": 43500,
+          "averageCostCents": 9
+        },
+        {
+          "asset": "SOL",
+          "quantity": 18,
+          "averageCostCents": 11500
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOGE",
+          "createdAt": "2026-07-17T10:15:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-18T11:24:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-19T12:33:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-20T09:45:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-23T10:50:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ryan_stack_doge_buy",
+          "asset": "DOGE",
+          "side": "buy",
+          "quantity": 47850,
+          "priceCents": 9,
+          "totalCents": 430650,
+          "createdAt": "2026-09-07T13:35:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ryan_stack_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 18,
+          "priceCents": 11000,
+          "totalCents": 198000,
+          "createdAt": "2026-09-10T17:55:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ryan_stack_doge_sell",
+          "asset": "DOGE",
+          "side": "sell",
+          "quantity": 4350,
+          "priceCents": 10,
+          "totalCents": 43500,
+          "createdAt": "2026-10-06T14:05:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "sofia_spot",
+      "followerCount": 88,
+      "email": "sofia.spot@trading1337.test",
+      "password": "Summit-33-sofi",
+      "name": "Sofia Rossi",
+      "walletAddress": "0x213f3c8411fb7ed744c809f55145341eacf84805",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 240000,
+      "createdAt": "2026-06-22T14:52:00.000Z",
+      "holdings": [
+        {
+          "asset": "AVAX",
+          "quantity": 386.666667,
+          "averageCostCents": 1656
+        },
+        {
+          "asset": "ETH",
+          "quantity": 1.6,
+          "averageCostCents": 212625
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-18T10:20:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-19T11:29:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-21T09:52:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-24T10:57:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "sofia_spot_avax_buy",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 425.333334,
+          "priceCents": 1512,
+          "totalCents": 643104,
+          "createdAt": "2026-09-08T14:42:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "sofia_spot_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 1.6,
+          "priceCents": 203625,
+          "totalCents": 325800,
+          "createdAt": "2026-09-11T12:06:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "sofia_spot_avax_sell",
+          "asset": "AVAX",
+          "side": "sell",
+          "quantity": 38.666667,
+          "priceCents": 1793,
+          "totalCents": 69329,
+          "createdAt": "2026-10-07T15:18:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "theo_ticker",
+      "followerCount": 91,
+      "email": "theo.ticker@trading1337.test",
+      "password": "Copper-34-theo",
+      "name": "Theo Evans",
+      "walletAddress": "0x648b8b5948a5f0a3ab4f33717e445ac321a37098",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 432000,
+      "createdAt": "2026-07-25T15:59:00.000Z",
+      "holdings": [
+        {
+          "asset": "LINK",
+          "quantity": 870,
+          "averageCostCents": 1134
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.07941176,
+          "averageCostCents": 6596000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-19T10:25:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-20T11:34:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-21T12:43:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-22T09:59:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-25T10:04:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "theo_ticker_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 957,
+          "priceCents": 1032,
+          "totalCents": 987624,
+          "createdAt": "2026-09-09T15:49:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "theo_ticker_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.07941176,
+          "priceCents": 6324000,
+          "totalCents": 502200,
+          "createdAt": "2026-09-12T13:17:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "theo_ticker_link_sell",
+          "asset": "LINK",
+          "side": "sell",
+          "quantity": 87,
+          "priceCents": 1217,
+          "totalCents": 105879,
+          "createdAt": "2026-10-08T16:31:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "jade_journal",
+      "followerCount": 94,
+      "email": "jade.journal@trading1337.test",
+      "password": "Atlas-35-jade",
+      "name": "Jade Wilson",
+      "walletAddress": "0x6b73e0b97000ca976dcb357ae099766954287bc6",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 300000,
+      "createdAt": "2026-06-01T16:06:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOT",
+          "quantity": 4142.8571,
+          "averageCostCents": 340
+        },
+        {
+          "asset": "ETH",
+          "quantity": 3.333333,
+          "averageCostCents": 223875
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOT",
+          "createdAt": "2026-07-20T10:30:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-21T11:39:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-22T12:48:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-23T09:06:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-26T10:11:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "jade_journal_dot_buy",
+          "asset": "DOT",
+          "side": "buy",
+          "quantity": 4557.1428,
+          "priceCents": 308,
+          "totalCents": 1403600,
+          "createdAt": "2026-09-10T08:56:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "jade_journal_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 3.333333,
+          "priceCents": 214875,
+          "totalCents": 716250,
+          "createdAt": "2026-09-13T14:28:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "jade_journal_dot_sell",
+          "asset": "DOT",
+          "side": "sell",
+          "quantity": 414.28571,
+          "priceCents": 336,
+          "totalCents": 139200,
+          "createdAt": "2026-10-09T17:44:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "jade_journal_post_1",
+          "asset": "DOT",
+          "body": "Keeping this DOT position small while the wider market settles.",
+          "createdAt": "2026-10-10T14:06:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-11T12:06:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "omar_orders",
+      "followerCount": 97,
+      "email": "omar.orders@trading1337.test",
+      "password": "Willow-36-omar",
+      "name": "Omar Haddad",
+      "walletAddress": "0xc7f2d579edb2ab4f762c8d4f576201f6cee82d15",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 720000,
+      "createdAt": "2026-07-04T17:13:00.000Z",
+      "holdings": [
+        {
+          "asset": "BNB",
+          "quantity": 46.607143,
+          "averageCostCents": 55720
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.19852941,
+          "averageCostCents": 6936000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BNB",
+          "createdAt": "2026-07-21T10:35:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-22T11:44:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-23T12:53:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-24T09:13:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-27T10:18:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "omar_orders_bnb_buy",
+          "asset": "BNB",
+          "side": "buy",
+          "quantity": 51.267857,
+          "priceCents": 50400,
+          "totalCents": 2583900,
+          "createdAt": "2026-09-11T09:03:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "omar_orders_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.19852941,
+          "priceCents": 6664000,
+          "totalCents": 1323000,
+          "createdAt": "2026-09-14T15:39:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "omar_orders_bnb_sell",
+          "asset": "BNB",
+          "side": "sell",
+          "quantity": 4.660714,
+          "priceCents": 54768,
+          "totalCents": 255258,
+          "createdAt": "2026-10-10T18:57:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "elle_entry",
+      "followerCount": 100,
+      "email": "elle.entry@trading1337.test",
+      "password": "Cedar-37-elle",
+      "name": "Elle Martin",
+      "walletAddress": "0xbc7b4a79d0402885c5f0577409dc7be8d6701bfd",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 2400,
+      "createdAt": "2026-06-07T08:20:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.00102353,
+          "averageCostCents": 6936000
+        },
+        {
+          "asset": "SOL",
+          "quantity": 0.288,
+          "averageCostCents": 10875
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-22T10:40:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-23T11:49:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-24T12:58:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-25T09:20:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-05T10:25:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "elle_entry_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00112588,
+          "priceCents": 6256000,
+          "totalCents": 7044,
+          "createdAt": "2026-09-12T10:10:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "nora_chain_btc_buy_1"
+        },
+        {
+          "key": "elle_entry_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 0.288,
+          "priceCents": 11000,
+          "totalCents": 3168,
+          "createdAt": "2026-09-15T16:50:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "elle_entry_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.00010235,
+          "priceCents": 6772800,
+          "totalCents": 693,
+          "createdAt": "2026-10-11T14:10:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "max_market",
+      "followerCount": 103,
+      "email": "max.market@trading1337.test",
+      "password": "Harbour-38-max_",
+      "name": "Max Fischer",
+      "walletAddress": "0x65f5a8be386b48fc694a5f40515f9bdf305a9ead",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 8400,
+      "createdAt": "2026-07-10T09:27:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 0.09022222,
+          "averageCostCents": 195750
+        },
+        {
+          "asset": "ADA",
+          "quantity": 477.272727,
+          "averageCostCents": 20
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-23T10:45:00.000Z"
+        },
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-24T11:54:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-25T12:03:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-26T09:27:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-06T10:32:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "max_market_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.09924444,
+          "priceCents": 211500,
+          "totalCents": 20990,
+          "createdAt": "2026-09-13T11:17:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "max_market_ada_buy",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 477.272727,
+          "priceCents": 20,
+          "totalCents": 9545,
+          "createdAt": "2026-09-16T17:01:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "max_market_eth_sell",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 0.00902222,
+          "priceCents": 228150,
+          "totalCents": 2058,
+          "createdAt": "2026-10-12T15:23:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "priya_portfolio",
+      "followerCount": 106,
+      "email": "priya.portfolio@trading1337.test",
+      "password": "Quartz-39-priy",
+      "name": "Priya Nair",
+      "walletAddress": "0x41d8b605ca4c345f42e18bff155330eb05cb40fa",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 10800,
+      "createdAt": "2026-06-13T10:34:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 1186.3636,
+          "averageCostCents": 39
+        },
+        {
+          "asset": "LINK",
+          "quantity": 22.5,
+          "averageCostCents": 1104
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-24T10:50:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-25T11:59:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-26T12:08:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-27T09:34:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-07T10:39:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "priya_portfolio_xrp_buy",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 1305,
+          "priceCents": 37,
+          "totalCents": 48285,
+          "createdAt": "2026-09-14T12:24:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "priya_portfolio_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 22.5,
+          "priceCents": 1116,
+          "totalCents": 25110,
+          "createdAt": "2026-09-17T12:12:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "priya_portfolio_xrp_sell",
+          "asset": "XRP",
+          "side": "sell",
+          "quantity": 118.63636,
+          "priceCents": 42,
+          "totalCents": 4983,
+          "createdAt": "2026-10-13T16:36:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "priya_portfolio_post_1",
+          "asset": "XRP",
+          "body": "Added XRP to the watchlist after today’s move.",
+          "createdAt": "2026-10-14T11:34:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-15T12:34:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "noah_nodes",
+      "followerCount": 109,
+      "email": "noah.nodes@trading1337.test",
+      "password": "Maple-40-noah",
+      "name": "Noah Hughes",
+      "walletAddress": "0x4f28fec2eeb9e72954ce6be45c0e3fca0b68042d",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 28800,
+      "createdAt": "2026-07-16T11:41:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOGE",
+          "quantity": 10440,
+          "averageCostCents": 9
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.00794118,
+          "averageCostCents": 6426000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOGE",
+          "createdAt": "2026-07-25T10:55:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-26T11:04:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-02T12:13:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-05T09:41:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-08T10:46:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "noah_nodes_doge_buy",
+          "asset": "DOGE",
+          "side": "buy",
+          "quantity": 11484,
+          "priceCents": 9,
+          "totalCents": 103356,
+          "createdAt": "2026-09-15T13:31:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "noah_nodes_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00794118,
+          "priceCents": 6494000,
+          "totalCents": 51570,
+          "createdAt": "2026-09-18T13:23:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "noah_nodes_doge_sell",
+          "asset": "DOGE",
+          "side": "sell",
+          "quantity": 1044,
+          "priceCents": 10,
+          "totalCents": 10440,
+          "createdAt": "2026-10-14T17:49:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "isla_index",
+      "followerCount": 112,
+      "email": "isla.index@trading1337.test",
+      "password": "Orbit-41-isla",
+      "name": "Isla Scott",
+      "walletAddress": "0x533c02da6904e1534d7f3401718e46ad9a1ee625",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 84000,
+      "createdAt": "2026-06-19T12:48:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 19.488,
+          "averageCostCents": 11813
+        },
+        {
+          "asset": "AVAX",
+          "quantity": 70,
+          "averageCostCents": 1746
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-26T10:00:00.000Z"
+        },
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-02T11:09:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-03T12:18:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-06T09:48:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-09T10:53:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "isla_index_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 21.4368,
+          "priceCents": 11000,
+          "totalCents": 235805,
+          "createdAt": "2026-09-16T14:38:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "isla_index_avax_buy",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 70,
+          "priceCents": 1764,
+          "totalCents": 123480,
+          "createdAt": "2026-09-19T14:34:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "isla_index_sol_sell",
+          "asset": "SOL",
+          "side": "sell",
+          "quantity": 1.9488,
+          "priceCents": 12450,
+          "totalCents": 24263,
+          "createdAt": "2026-10-15T18:02:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "kai_candle",
+      "followerCount": 115,
+      "email": "kai.candle@trading1337.test",
+      "password": "Velvet-42-kai_",
+      "name": "Kai Morgan",
+      "walletAddress": "0x6febfddfc3104867c27e17d8a7c717eb1e24e2a2",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 180000,
+      "createdAt": "2026-07-22T13:55:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.06397059,
+          "averageCostCents": 6596000
+        },
+        {
+          "asset": "DOT",
+          "quantity": 642.857143,
+          "averageCostCents": 348
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-02T10:05:00.000Z"
+        },
+        {
+          "asset": "DOT",
+          "createdAt": "2026-07-03T11:14:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-04T12:23:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-07T09:55:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-10T10:00:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "kai_candle_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.07036765,
+          "priceCents": 6120000,
+          "totalCents": 430650,
+          "createdAt": "2026-09-17T15:45:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "nora_chain_btc_buy_1"
+        },
+        {
+          "key": "kai_candle_dot_buy",
+          "asset": "DOT",
+          "side": "buy",
+          "quantity": 642.857143,
+          "priceCents": 308,
+          "totalCents": 198000,
+          "createdAt": "2026-09-20T15:45:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "kai_candle_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.00639706,
+          "priceCents": 6895200,
+          "totalCents": 44109,
+          "createdAt": "2026-10-16T14:15:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "ruby_returns",
+      "followerCount": 118,
+      "email": "ruby.returns@trading1337.test",
+      "password": "Summit-43-ruby",
+      "name": "Ruby Adams",
+      "walletAddress": "0x7188a7a2f9ebb886f00f4fb23bf4bbeb343ce239",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 144000,
+      "createdAt": "2026-06-25T14:02:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.10235294,
+          "averageCostCents": 6766000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 1.6,
+          "averageCostCents": 229500
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-03T10:10:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-04T11:19:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-08T09:02:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-11T10:07:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ruby_returns_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.11258823,
+          "priceCents": 6256000,
+          "totalCents": 704352,
+          "createdAt": "2026-09-18T08:52:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ruby_returns_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 1.6,
+          "priceCents": 203625,
+          "totalCents": 325800,
+          "createdAt": "2026-09-21T16:56:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ruby_returns_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.01023529,
+          "priceCents": 6528000,
+          "totalCents": 66816,
+          "createdAt": "2026-10-17T15:28:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "ruby_returns_post_1",
+          "asset": "BTC",
+          "body": "Slowly building the BTC position rather than chasing price.",
+          "createdAt": "2026-10-02T15:02:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-03T12:02:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "finn_finance",
+      "followerCount": 121,
+      "email": "finn.finance@trading1337.test",
+      "password": "Copper-44-finn",
+      "name": "Finn Doyle",
+      "walletAddress": "0xaf8bd21f18950588d5f1eced801f4f7a5cad779f",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 288000,
+      "createdAt": "2026-07-01T15:09:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 4.64,
+          "averageCostCents": 229500
+        },
+        {
+          "asset": "LINK",
+          "quantity": 450,
+          "averageCostCents": 1044
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-04T10:15:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-05T11:24:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-06T12:33:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-09T09:09:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-12T10:14:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "finn_finance_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 5.104,
+          "priceCents": 211500,
+          "totalCents": 1079496,
+          "createdAt": "2026-09-19T09:59:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "finn_finance_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 450,
+          "priceCents": 1116,
+          "totalCents": 502200,
+          "createdAt": "2026-09-22T17:07:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "finn_finance_eth_sell",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 0.464,
+          "priceCents": 220050,
+          "totalCents": 102103,
+          "createdAt": "2026-10-18T16:41:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "zara_zone",
+      "followerCount": 124,
+      "email": "zara.zone@trading1337.test",
+      "password": "Atlas-45-zara",
+      "name": "Zara Khan",
+      "walletAddress": "0x579c488802831f6c2e7db3381799712b09f96cee",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 500000,
+      "createdAt": "2026-06-04T16:16:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 116,
+          "averageCostCents": 10875
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.11029412,
+          "averageCostCents": 6086000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-05T10:20:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-06T11:29:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-07T12:38:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-10T09:16:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-13T10:21:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "zara_zone_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 127.6,
+          "priceCents": 10500,
+          "totalCents": 1339800,
+          "createdAt": "2026-09-20T10:06:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "zara_zone_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.11029412,
+          "priceCents": 6494000,
+          "totalCents": 716250,
+          "createdAt": "2026-09-23T12:18:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "zara_zone_sol_sell",
+          "asset": "SOL",
+          "side": "sell",
+          "quantity": 11.6,
+          "priceCents": 12450,
+          "totalCents": 144420,
+          "createdAt": "2026-10-01T17:54:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "liam_levels",
+      "followerCount": 127,
+      "email": "liam.levels@trading1337.test",
+      "password": "Willow-46-liam",
+      "name": "Liam Murphy",
+      "walletAddress": "0xfc1f4c7e2766e6ef7908cd3a8ced67ab3b5c824c",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 1080000,
+      "createdAt": "2026-07-07T17:23:00.000Z",
+      "holdings": [
+        {
+          "asset": "ADA",
+          "quantity": 118636.3636,
+          "averageCostCents": 20
+        },
+        {
+          "asset": "ETH",
+          "quantity": 6,
+          "averageCostCents": 207000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-06T10:25:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-07T11:34:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-11T09:23:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-14T10:28:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "liam_levels_ada_buy",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 130500,
+          "priceCents": 19,
+          "totalCents": 2479500,
+          "createdAt": "2026-09-21T11:13:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "liam_levels_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 6,
+          "priceCents": 220500,
+          "totalCents": 1323000,
+          "createdAt": "2026-09-24T13:29:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "liam_levels_ada_sell",
+          "asset": "ADA",
+          "side": "sell",
+          "quantity": 11863.6364,
+          "priceCents": 22,
+          "totalCents": 261000,
+          "createdAt": "2026-10-02T18:07:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "maya_moves",
+      "followerCount": 130,
+      "email": "maya.moves@trading1337.test",
+      "password": "Cedar-47-maya",
+      "name": "Maya Patel",
+      "walletAddress": "0x58b678c1b96235bf10395919599efc3431fc6b2b",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 1440,
+      "createdAt": "2026-06-10T08:30:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 158.181818,
+          "averageCostCents": 40
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.00052941,
+          "averageCostCents": 6426000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-07T10:30:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-08T11:39:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-12T09:30:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-15T10:35:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "maya_moves_xrp_buy",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 174,
+          "priceCents": 39,
+          "totalCents": 6786,
+          "createdAt": "2026-09-22T12:20:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "ripplewatch_xrp_buy_1"
+        },
+        {
+          "key": "maya_moves_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00052941,
+          "priceCents": 5984000,
+          "totalCents": 3168,
+          "createdAt": "2026-09-25T14:40:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "maya_moves_xrp_sell",
+          "asset": "XRP",
+          "side": "sell",
+          "quantity": 15.818182,
+          "priceCents": 42,
+          "totalCents": 664,
+          "createdAt": "2026-10-03T14:20:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "maya_moves_post_1",
+          "asset": "XRP",
+          "body": "The XRP level is interesting, but I want a daily close first.",
+          "createdAt": "2026-10-06T12:30:00.000Z",
+          "likes": [
+            {
+              "username": "nora_chain",
+              "createdAt": "2026-10-07T12:30:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "ethan_euro",
+      "followerCount": 133,
+      "email": "ethan.euro@trading1337.test",
+      "password": "Harbour-48-etha",
+      "name": "Ethan Brown",
+      "walletAddress": "0x92332a106989519448395da0475219abebff04f9",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 5600,
+      "createdAt": "2026-07-13T09:37:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOGE",
+          "quantity": 2030,
+          "averageCostCents": 9
+        },
+        {
+          "asset": "SOL",
+          "quantity": 0.84,
+          "averageCostCents": 12125
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOGE",
+          "createdAt": "2026-07-08T10:35:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-09T11:44:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-10T12:53:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-13T09:37:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-16T10:42:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "ethan_euro_doge_buy",
+          "asset": "DOGE",
+          "side": "buy",
+          "quantity": 2233,
+          "priceCents": 9,
+          "totalCents": 20097,
+          "createdAt": "2026-09-23T13:27:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethan_euro_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 0.84,
+          "priceCents": 11313,
+          "totalCents": 9503,
+          "createdAt": "2026-09-26T15:51:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "ethan_euro_doge_sell",
+          "asset": "DOGE",
+          "side": "sell",
+          "quantity": 203,
+          "priceCents": 10,
+          "totalCents": 2030,
+          "createdAt": "2026-10-04T15:33:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "nina_numbers",
+      "followerCount": 136,
+      "email": "nina.numbers@trading1337.test",
+      "password": "Quartz-49-nina",
+      "name": "Nina Garcia",
+      "walletAddress": "0x34752406dd903e1660ecffd46e326cef1f054365",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 18000,
+      "createdAt": "2026-06-16T10:44:00.000Z",
+      "holdings": [
+        {
+          "asset": "AVAX",
+          "quantity": 29,
+          "averageCostCents": 1746
+        },
+        {
+          "asset": "ETH",
+          "quantity": 0.12,
+          "averageCostCents": 223875
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-09T10:40:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-10T11:49:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-14T09:44:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-17T10:49:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "nina_numbers_avax_buy",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 31.9,
+          "priceCents": 1656,
+          "totalCents": 52826,
+          "createdAt": "2026-09-24T14:34:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nina_numbers_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.12,
+          "priceCents": 209250,
+          "totalCents": 25110,
+          "createdAt": "2026-09-05T16:02:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "nina_numbers_avax_sell",
+          "asset": "AVAX",
+          "side": "sell",
+          "quantity": 2.9,
+          "priceCents": 1793,
+          "totalCents": 5200,
+          "createdAt": "2026-10-05T16:46:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "adam_assets",
+      "followerCount": 139,
+      "email": "adam.assets@trading1337.test",
+      "password": "Maple-50-adam",
+      "name": "Adam King",
+      "walletAddress": "0x40eb536096eeca04762fc44452d88347f0a42ebd",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 43200,
+      "createdAt": "2026-07-19T11:51:00.000Z",
+      "holdings": [
+        {
+          "asset": "LINK",
+          "quantity": 87,
+          "averageCostCents": 1194
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.00794118,
+          "averageCostCents": 6936000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-10T10:45:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-11T11:54:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-15T09:51:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-18T10:56:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "adam_assets_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 95.7,
+          "priceCents": 1128,
+          "totalCents": 107950,
+          "createdAt": "2026-09-25T15:41:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "adam_assets_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00794118,
+          "priceCents": 6494000,
+          "totalCents": 51570,
+          "createdAt": "2026-09-06T17:13:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "adam_assets_link_sell",
+          "asset": "LINK",
+          "side": "sell",
+          "quantity": 8.7,
+          "priceCents": 1217,
+          "totalCents": 10588,
+          "createdAt": "2026-10-06T17:59:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "leah_ledger",
+      "followerCount": 142,
+      "email": "leah.ledger@trading1337.test",
+      "password": "Orbit-51-leah",
+      "name": "Leah Taylor",
+      "walletAddress": "0xd8f9db988d7fd1acbfb0f485f3f563510561c3ab",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 50400,
+      "createdAt": "2026-06-22T12:58:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOT",
+          "quantity": 696,
+          "averageCostCents": 357
+        },
+        {
+          "asset": "ETH",
+          "quantity": 0.56,
+          "averageCostCents": 195750
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOT",
+          "createdAt": "2026-07-11T10:50:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-12T11:59:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-16T09:58:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-19T10:03:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "leah_ledger_dot_buy",
+          "asset": "DOT",
+          "side": "buy",
+          "quantity": 765.6,
+          "priceCents": 294,
+          "totalCents": 225086,
+          "createdAt": "2026-09-02T08:48:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "leah_ledger_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.56,
+          "priceCents": 220500,
+          "totalCents": 123480,
+          "createdAt": "2026-09-07T12:24:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "leah_ledger_dot_sell",
+          "asset": "DOT",
+          "side": "sell",
+          "quantity": 69.6,
+          "priceCents": 336,
+          "totalCents": 23386,
+          "createdAt": "2026-10-07T18:12:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "leah_ledger_post_1",
+          "asset": "DOT",
+          "body": "Keeping this DOT position small while the wider market settles.",
+          "createdAt": "2026-10-10T16:58:00.000Z",
+          "likes": [
+            {
+              "username": "solstice_sam",
+              "createdAt": "2026-10-11T12:58:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "samir_spot",
+      "followerCount": 145,
+      "email": "samir.spot@trading1337.test",
+      "password": "Velvet-52-sami",
+      "name": "Samir Ali",
+      "walletAddress": "0x9597504b8d6a555f3532053418469f5706a05239",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 120000,
+      "createdAt": "2026-07-25T13:05:00.000Z",
+      "holdings": [
+        {
+          "asset": "BNB",
+          "quantity": 7.767857,
+          "averageCostCents": 48720
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.03308824,
+          "averageCostCents": 6086000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BNB",
+          "createdAt": "2026-07-12T10:55:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-13T11:04:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-14T12:13:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-17T09:05:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-20T10:10:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "samir_spot_bnb_buy",
+          "asset": "BNB",
+          "side": "buy",
+          "quantity": 8.544643,
+          "priceCents": 48160,
+          "totalCents": 411510,
+          "createdAt": "2026-09-03T09:55:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "satsandcharts_bnb_buy_1"
+        },
+        {
+          "key": "samir_spot_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.03308824,
+          "priceCents": 5984000,
+          "totalCents": 198000,
+          "createdAt": "2026-09-08T13:35:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "samir_spot_bnb_sell",
+          "asset": "BNB",
+          "side": "sell",
+          "quantity": 0.7767857,
+          "priceCents": 54768,
+          "totalCents": 42543,
+          "createdAt": "2026-10-08T14:25:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "chloe_charts",
+      "followerCount": 148,
+      "email": "chloe.charts@trading1337.test",
+      "password": "Summit-53-chlo",
+      "name": "Chloe Baker",
+      "walletAddress": "0x82d9f24e90b6e2854e15b49388bb63c7f94f9274",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 240000,
+      "createdAt": "2026-06-01T14:12:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.10235294,
+          "averageCostCents": 6086000
+        },
+        {
+          "asset": "SOL",
+          "quantity": 28.8,
+          "averageCostCents": 11500
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-13T10:00:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-14T11:09:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-18T09:12:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-21T10:17:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "chloe_charts_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.11258823,
+          "priceCents": 5984000,
+          "totalCents": 673728,
+          "createdAt": "2026-09-04T10:02:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chloe_charts_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 28.8,
+          "priceCents": 11313,
+          "totalCents": 325814,
+          "createdAt": "2026-09-09T14:46:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "chloe_charts_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.01023529,
+          "priceCents": 6772800,
+          "totalCents": 69322,
+          "createdAt": "2026-10-09T15:38:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "dan_dca",
+      "followerCount": 151,
+      "email": "dan.dca@trading1337.test",
+      "password": "Copper-54-dan_",
+      "name": "Daniel Green",
+      "walletAddress": "0x3bf6d67b49c229a671d869eeb085c8d6d6b3805c",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 432000,
+      "createdAt": "2026-07-04T15:19:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 4.64,
+          "averageCostCents": 207000
+        },
+        {
+          "asset": "ADA",
+          "quantity": 24545.4545,
+          "averageCostCents": 21
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-14T10:05:00.000Z"
+        },
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-15T11:14:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-19T09:19:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-22T10:24:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "dan_dca_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 5.104,
+          "priceCents": 202500,
+          "totalCents": 1033560,
+          "createdAt": "2026-09-05T11:09:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "dan_dca_ada_buy",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 24545.4545,
+          "priceCents": 20,
+          "totalCents": 490909,
+          "createdAt": "2026-09-10T15:57:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "dan_dca_eth_sell",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 0.464,
+          "priceCents": 228150,
+          "totalCents": 105862,
+          "createdAt": "2026-10-10T16:51:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "aisha_alpha",
+      "followerCount": 154,
+      "email": "aisha.alpha@trading1337.test",
+      "password": "Atlas-55-aish",
+      "name": "Aisha Rahman",
+      "walletAddress": "0xadb5c14eb0e83dfda2a211a73119862431ed826f",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 300000,
+      "createdAt": "2026-06-07T16:26:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 32954.5455,
+          "averageCostCents": 42
+        },
+        {
+          "asset": "LINK",
+          "quantity": 625,
+          "averageCostCents": 1164
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-15T10:10:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-16T11:19:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-17T12:28:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-20T09:26:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-23T10:31:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "aisha_alpha_xrp_buy",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 36250.0001,
+          "priceCents": 40,
+          "totalCents": 1450000,
+          "createdAt": "2026-09-06T12:16:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "aisha_alpha_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 625,
+          "priceCents": 1146,
+          "totalCents": 716250,
+          "createdAt": "2026-09-11T16:08:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "aisha_alpha_xrp_sell",
+          "asset": "XRP",
+          "side": "sell",
+          "quantity": 3295.4546,
+          "priceCents": 42,
+          "totalCents": 138409,
+          "createdAt": "2026-10-11T17:04:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "aisha_alpha_post_1",
+          "asset": "XRP",
+          "body": "Added XRP to the watchlist after today’s move.",
+          "createdAt": "2026-10-14T13:26:00.000Z",
+          "likes": [
+            {
+              "username": "ripplewatch",
+              "createdAt": "2026-10-15T12:26:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "tom_tokens",
+      "followerCount": 157,
+      "email": "tom.tokens@trading1337.test",
+      "password": "Willow-56-tom_",
+      "name": "Tom Cooper",
+      "walletAddress": "0x58d42b5d96eb5cf21c68948083167b2251369c34",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 720000,
+      "createdAt": "2026-07-10T17:33:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOGE",
+          "quantity": 261000,
+          "averageCostCents": 10
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.19852941,
+          "averageCostCents": 6766000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOGE",
+          "createdAt": "2026-07-16T10:15:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-17T11:24:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-21T09:33:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-24T10:38:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "tom_tokens_doge_buy",
+          "asset": "DOGE",
+          "side": "buy",
+          "quantity": 287100,
+          "priceCents": 9,
+          "totalCents": 2583900,
+          "createdAt": "2026-09-07T13:23:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "tom_tokens_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.19852941,
+          "priceCents": 6664000,
+          "totalCents": 1323000,
+          "createdAt": "2026-09-12T17:19:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "tom_tokens_doge_sell",
+          "asset": "DOGE",
+          "side": "sell",
+          "quantity": 26100,
+          "priceCents": 10,
+          "totalCents": 261000,
+          "createdAt": "2026-10-12T18:17:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "lucy_liquidity",
+      "followerCount": 160,
+      "email": "lucy.liquidity@trading1337.test",
+      "password": "Cedar-57-lucy",
+      "name": "Lucy Bell",
+      "walletAddress": "0xb8b6ff78bef44bdca83590d0cc3f5ba1f2faa3e7",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 2400,
+      "createdAt": "2026-06-13T08:40:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 0.5568,
+          "averageCostCents": 12438
+        },
+        {
+          "asset": "AVAX",
+          "quantity": 2,
+          "averageCostCents": 1836
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-17T10:20:00.000Z"
+        },
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-18T11:29:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-19T12:38:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-22T09:40:00.000Z"
+        },
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-25T10:45:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "lucy_liquidity_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 0.61248,
+          "priceCents": 10500,
+          "totalCents": 6431,
+          "createdAt": "2026-09-08T14:30:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "solstice_sam_sol_buy_1"
+        },
+        {
+          "key": "lucy_liquidity_avax_buy",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 2,
+          "priceCents": 1584,
+          "totalCents": 3168,
+          "createdAt": "2026-09-13T12:30:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "lucy_liquidity_sol_sell",
+          "asset": "SOL",
+          "side": "sell",
+          "quantity": 0.05568,
+          "priceCents": 12450,
+          "totalCents": 693,
+          "createdAt": "2026-10-13T14:30:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "victor_value",
+      "followerCount": 163,
+      "email": "victor.value@trading1337.test",
+      "password": "Harbour-58-vict",
+      "name": "Victor Young",
+      "walletAddress": "0x7f0b90bfb279d4cfdb0a06395a10400d27e78ae2",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 8400,
+      "createdAt": "2026-07-16T09:47:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.00298529,
+          "averageCostCents": 6936000
+        },
+        {
+          "asset": "DOT",
+          "quantity": 30,
+          "averageCostCents": 305
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-18T10:25:00.000Z"
+        },
+        {
+          "asset": "DOT",
+          "createdAt": "2026-07-19T11:34:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-20T12:43:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-23T09:47:00.000Z"
+        },
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-26T10:52:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "victor_value_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00328382,
+          "priceCents": 5848000,
+          "totalCents": 19204,
+          "createdAt": "2026-09-09T15:37:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "victor_value_dot_buy",
+          "asset": "DOT",
+          "side": "buy",
+          "quantity": 30,
+          "priceCents": 317,
+          "totalCents": 9510,
+          "createdAt": "2026-09-14T13:41:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "victor_value_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.00029853,
+          "priceCents": 6895200,
+          "totalCents": 2058,
+          "createdAt": "2026-10-14T15:43:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "grace_gains",
+      "followerCount": 166,
+      "email": "grace.gains@trading1337.test",
+      "password": "Quartz-59-grac",
+      "name": "Grace Hall",
+      "walletAddress": "0xcfa74ad39b9238d887c475bd42985daded62e5a5",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 10800,
+      "createdAt": "2026-06-19T10:54:00.000Z",
+      "holdings": [
+        {
+          "asset": "BTC",
+          "quantity": 0.00767647,
+          "averageCostCents": 5916000
+        },
+        {
+          "asset": "ETH",
+          "quantity": 0.12,
+          "averageCostCents": 201375
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-19T10:30:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-20T11:39:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-24T09:54:00.000Z"
+        },
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-27T10:59:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "grace_gains_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.00844412,
+          "priceCents": 5984000,
+          "totalCents": 50530,
+          "createdAt": "2026-09-10T08:44:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "grace_gains_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.12,
+          "priceCents": 209250,
+          "totalCents": 25110,
+          "createdAt": "2026-09-15T14:52:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "grace_gains_btc_sell",
+          "asset": "BTC",
+          "side": "sell",
+          "quantity": 0.00076765,
+          "priceCents": 6528000,
+          "totalCents": 5011,
+          "createdAt": "2026-10-15T16:56:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "grace_gains_post_1",
+          "asset": "BTC",
+          "body": "Slowly building the BTC position rather than chasing price.",
+          "createdAt": "2026-10-02T10:54:00.000Z",
+          "likes": [
+            {
+              "username": "ethereal_eve",
+              "createdAt": "2026-10-03T12:54:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "henry_hold",
+      "followerCount": 169,
+      "email": "henry.hold@trading1337.test",
+      "password": "Maple-60-henr",
+      "name": "Henry Wright",
+      "walletAddress": "0xb0ba3089113b4812fb42c707356f151e8af5e3a6",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 28800,
+      "createdAt": "2026-07-22T11:01:00.000Z",
+      "holdings": [
+        {
+          "asset": "ETH",
+          "quantity": 0.464,
+          "averageCostCents": 201375
+        },
+        {
+          "asset": "LINK",
+          "quantity": 45,
+          "averageCostCents": 1104
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-20T10:35:00.000Z"
+        },
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-21T11:44:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "satsandcharts",
+          "createdAt": "2026-07-25T09:01:00.000Z"
+        },
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-05T10:06:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "henry_hold_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 0.5104,
+          "priceCents": 202500,
+          "totalCents": 103356,
+          "createdAt": "2026-09-11T09:51:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "henry_hold_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 45,
+          "priceCents": 1146,
+          "totalCents": 51570,
+          "createdAt": "2026-09-16T15:03:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "henry_hold_eth_sell",
+          "asset": "ETH",
+          "side": "sell",
+          "quantity": 0.0464,
+          "priceCents": 220050,
+          "totalCents": 10210,
+          "createdAt": "2026-10-16T17:09:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "imani_invests",
+      "followerCount": 172,
+      "email": "imani.invests@trading1337.test",
+      "password": "Orbit-61-iman",
+      "name": "Imani Lewis",
+      "walletAddress": "0x16dd64aabf03d66316019d54479418f0e4204487",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 84000,
+      "createdAt": "2026-06-25T12:08:00.000Z",
+      "holdings": [
+        {
+          "asset": "SOL",
+          "quantity": 19.488,
+          "averageCostCents": 11500
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.01852941,
+          "averageCostCents": 6426000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-21T10:40:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-22T11:49:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-23T12:58:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "solstice_sam",
+          "createdAt": "2026-07-26T09:08:00.000Z"
+        },
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-06T10:13:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "imani_invests_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 21.4368,
+          "priceCents": 11500,
+          "totalCents": 246523,
+          "createdAt": "2026-09-12T10:58:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "imani_invests_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.01852941,
+          "priceCents": 6664000,
+          "totalCents": 123480,
+          "createdAt": "2026-09-17T16:14:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "imani_invests_sol_sell",
+          "asset": "SOL",
+          "side": "sell",
+          "quantity": 1.9488,
+          "priceCents": 12450,
+          "totalCents": 24263,
+          "createdAt": "2026-10-17T18:22:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "jack_journal",
+      "followerCount": 175,
+      "email": "jack.journal@trading1337.test",
+      "password": "Velvet-62-jack",
+      "name": "Jack Walker",
+      "walletAddress": "0xd54baa64e45b983a3263316190f3f6a4e9b788ac",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 180000,
+      "createdAt": "2026-07-01T13:15:00.000Z",
+      "holdings": [
+        {
+          "asset": "ADA",
+          "quantity": 19772.7273,
+          "averageCostCents": 21
+        },
+        {
+          "asset": "ETH",
+          "quantity": 1,
+          "averageCostCents": 218250
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "ADA",
+          "createdAt": "2026-07-22T10:45:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-23T11:54:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-24T12:03:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "chainlink_liv",
+          "createdAt": "2026-07-27T09:15:00.000Z"
+        },
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-07T10:20:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "jack_journal_ada_buy",
+          "asset": "ADA",
+          "side": "buy",
+          "quantity": 21750,
+          "priceCents": 21,
+          "totalCents": 456750,
+          "createdAt": "2026-09-13T11:05:00.000Z",
+          "likes": [],
+          "comments": [],
+          "copiedFrom": "ada_ava_ada_buy_1"
+        },
+        {
+          "key": "jack_journal_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 1,
+          "priceCents": 198000,
+          "totalCents": 198000,
+          "createdAt": "2026-09-18T17:25:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "jack_journal_ada_sell",
+          "asset": "ADA",
+          "side": "sell",
+          "quantity": 1977.2727,
+          "priceCents": 22,
+          "totalCents": 43500,
+          "createdAt": "2026-10-18T14:35:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "sara_signals",
+      "followerCount": 178,
+      "email": "sara.signals@trading1337.test",
+      "password": "Summit-63-sara",
+      "name": "Sara Thompson",
+      "walletAddress": "0x66f7690424ddd257cb92faa336d9bf19f1685144",
+      "bio": "Building a steady portfolio one position at a time.",
+      "cashCents": 144000,
+      "createdAt": "2026-06-04T14:22:00.000Z",
+      "holdings": [
+        {
+          "asset": "XRP",
+          "quantity": 15818.1818,
+          "averageCostCents": 43
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.05294118,
+          "averageCostCents": 6766000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "XRP",
+          "createdAt": "2026-07-23T10:50:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-24T11:59:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-25T12:08:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "coinclaire",
+          "createdAt": "2026-07-05T09:22:00.000Z"
+        },
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-08T10:27:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "sara_signals_xrp_buy",
+          "asset": "XRP",
+          "side": "buy",
+          "quantity": 17400,
+          "priceCents": 37,
+          "totalCents": 643800,
+          "createdAt": "2026-09-14T12:12:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "sara_signals_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.05294118,
+          "priceCents": 6154000,
+          "totalCents": 325800,
+          "createdAt": "2026-09-19T12:36:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "sara_signals_xrp_sell",
+          "asset": "XRP",
+          "side": "sell",
+          "quantity": 1581.8182,
+          "priceCents": 42,
+          "totalCents": 66436,
+          "createdAt": "2026-10-01T15:48:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": [
+        {
+          "key": "sara_signals_post_1",
+          "asset": "XRP",
+          "body": "The XRP level is interesting, but I want a daily close first.",
+          "createdAt": "2026-10-06T14:22:00.000Z",
+          "likes": [
+            {
+              "username": "coinclaire",
+              "createdAt": "2026-10-07T12:22:00.000Z"
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "username": "leo_long",
+      "followerCount": 181,
+      "email": "leo.long@trading1337.test",
+      "password": "Copper-64-leo_",
+      "name": "Leon Grant",
+      "walletAddress": "0x22f6e69731a3180df3c43f4a2af32c384af60413",
+      "bio": "Small positions, clear levels and no rushed entries.",
+      "cashCents": 288000,
+      "createdAt": "2026-07-07T15:29:00.000Z",
+      "holdings": [
+        {
+          "asset": "DOGE",
+          "quantity": 104400,
+          "averageCostCents": 10
+        },
+        {
+          "asset": "SOL",
+          "quantity": 43.2,
+          "averageCostCents": 12750
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "DOGE",
+          "createdAt": "2026-07-24T10:55:00.000Z"
+        },
+        {
+          "asset": "SOL",
+          "createdAt": "2026-07-25T11:04:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-26T12:13:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ada_ava",
+          "createdAt": "2026-07-06T09:29:00.000Z"
+        },
+        {
+          "username": "nora_chain",
+          "createdAt": "2026-07-09T10:34:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "leo_long_doge_buy",
+          "asset": "DOGE",
+          "side": "buy",
+          "quantity": 114840,
+          "priceCents": 9,
+          "totalCents": 1033560,
+          "createdAt": "2026-09-15T13:19:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "leo_long_sol_buy",
+          "asset": "SOL",
+          "side": "buy",
+          "quantity": 43.2,
+          "priceCents": 11625,
+          "totalCents": 502200,
+          "createdAt": "2026-09-20T13:47:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "leo_long_doge_sell",
+          "asset": "DOGE",
+          "side": "sell",
+          "quantity": 10440,
+          "priceCents": 10,
+          "totalCents": 104400,
+          "createdAt": "2026-10-02T16:01:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "emma_entry",
+      "followerCount": 184,
+      "email": "emma.entry@trading1337.test",
+      "password": "Atlas-65-emma",
+      "name": "Emma Roberts",
+      "walletAddress": "0x59b08510d3376763742ab60439776eae12547245",
+      "bio": "Learning the market and keeping the portfolio simple.",
+      "cashCents": 500000,
+      "createdAt": "2026-06-10T16:36:00.000Z",
+      "holdings": [
+        {
+          "asset": "AVAX",
+          "quantity": 805.555556,
+          "averageCostCents": 1836
+        },
+        {
+          "asset": "ETH",
+          "quantity": 3.333333,
+          "averageCostCents": 195750
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "AVAX",
+          "createdAt": "2026-07-25T10:00:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-26T11:09:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-02T12:18:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "ripplewatch",
+          "createdAt": "2026-07-07T09:36:00.000Z"
+        },
+        {
+          "username": "macro_mike",
+          "createdAt": "2026-07-10T10:41:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "emma_entry_avax_buy",
+          "asset": "AVAX",
+          "side": "buy",
+          "quantity": 886.111112,
+          "priceCents": 1584,
+          "totalCents": 1403600,
+          "createdAt": "2026-09-16T14:26:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "emma_entry_eth_buy",
+          "asset": "ETH",
+          "side": "buy",
+          "quantity": 3.333333,
+          "priceCents": 214875,
+          "totalCents": 716250,
+          "createdAt": "2026-09-21T14:58:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "emma_entry_avax_sell",
+          "asset": "AVAX",
+          "side": "sell",
+          "quantity": 80.555556,
+          "priceCents": 1793,
+          "totalCents": 144436,
+          "createdAt": "2026-10-03T17:14:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    },
+    {
+      "username": "oscar_orders",
+      "followerCount": 187,
+      "email": "oscar.orders@trading1337.test",
+      "password": "Willow-66-osca",
+      "name": "Oscar Turner",
+      "walletAddress": "0xc35bfc9e786742b921560b3d4f29be0a344a01e3",
+      "bio": "Mostly spot holdings and occasional swing trades.",
+      "cashCents": 1080000,
+      "createdAt": "2026-07-13T17:43:00.000Z",
+      "holdings": [
+        {
+          "asset": "LINK",
+          "quantity": 2175,
+          "averageCostCents": 1044
+        },
+        {
+          "asset": "BTC",
+          "quantity": 0.19852941,
+          "averageCostCents": 6086000
+        }
+      ],
+      "watchlist": [
+        {
+          "asset": "LINK",
+          "createdAt": "2026-07-26T10:05:00.000Z"
+        },
+        {
+          "asset": "BTC",
+          "createdAt": "2026-07-02T11:14:00.000Z"
+        },
+        {
+          "asset": "ETH",
+          "createdAt": "2026-07-03T12:23:00.000Z"
+        }
+      ],
+      "follows": [
+        {
+          "username": "avalanche_alex",
+          "createdAt": "2026-07-08T09:43:00.000Z"
+        },
+        {
+          "username": "ethereal_eve",
+          "createdAt": "2026-07-11T10:48:00.000Z"
+        }
+      ],
+      "trades": [
+        {
+          "key": "oscar_orders_link_buy",
+          "asset": "LINK",
+          "side": "buy",
+          "quantity": 2392.5,
+          "priceCents": 1080,
+          "totalCents": 2583900,
+          "createdAt": "2026-09-17T15:33:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "oscar_orders_btc_buy",
+          "asset": "BTC",
+          "side": "buy",
+          "quantity": 0.19852941,
+          "priceCents": 6664000,
+          "totalCents": 1323000,
+          "createdAt": "2026-09-22T15:09:00.000Z",
+          "likes": [],
+          "comments": []
+        },
+        {
+          "key": "oscar_orders_link_sell",
+          "asset": "LINK",
+          "side": "sell",
+          "quantity": 217.5,
+          "priceCents": 1217,
+          "totalCents": 264698,
+          "createdAt": "2026-10-04T18:27:00.000Z",
+          "likes": [],
+          "comments": []
+        }
+      ],
+      "posts": []
+    }
+  ]
+}
+

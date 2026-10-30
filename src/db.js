@@ -2,6 +2,7 @@ const { DatabaseSync } = require('node:sqlite');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const { avatarColor } = require('./services/avatar');
 
 function passwordRecord(password) {
   const salt = crypto.randomBytes(16).toString('hex');
@@ -92,15 +93,6 @@ function migrate(db) {
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       PRIMARY KEY (follower_id, followed_id)
     );
-    CREATE TABLE IF NOT EXISTS contacts (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      requester_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-      recipient_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-      status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','accepted')),
-      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      accepted_at TEXT,
-      CHECK(requester_id != recipient_id)
-    );
     CREATE TABLE IF NOT EXISTS likes (
       user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
       trade_id INTEGER NOT NULL REFERENCES trades(id) ON DELETE CASCADE,
@@ -144,8 +136,6 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_trades_created ON trades(created_at DESC, id DESC);
     CREATE INDEX IF NOT EXISTS idx_comments_trade ON comments(trade_id, created_at DESC);
     CREATE INDEX IF NOT EXISTS idx_follows_followed ON follows(followed_id);
-    CREATE INDEX IF NOT EXISTS idx_contacts_requester ON contacts(requester_id, status);
-    CREATE INDEX IF NOT EXISTS idx_contacts_recipient ON contacts(recipient_id, status);
     CREATE INDEX IF NOT EXISTS idx_community_posts_created ON community_posts(created_at DESC, id DESC);
   `);
 
@@ -167,6 +157,50 @@ function migrate(db) {
   if (!assetColumns.some((column) => column.name === 'category')) db.exec("ALTER TABLE assets ADD COLUMN category TEXT NOT NULL DEFAULT 'crypto';");
   if (!assetColumns.some((column) => column.name === 'source')) db.exec("ALTER TABLE assets ADD COLUMN source TEXT NOT NULL DEFAULT 'CoinGecko';");
   if (!assetColumns.some((column) => column.name === 'icon_url')) db.exec("ALTER TABLE assets ADD COLUMN icon_url TEXT NOT NULL DEFAULT '';");
+
+  for (const [column, type] of [['market_cap_cents', 'INTEGER'], ['volume_24h_cents', 'INTEGER'], ['change_7d', 'REAL']]) {
+    if (!assetColumns.some((field) => field.name === column)) db.exec(`ALTER TABLE assets ADD COLUMN ${column} ${type};`);
+  }
+
+  // Backfill once; subsequent writes maintain totals in the same SQLite transaction.
+  const counters = [
+    ['users', 'follower_count', 'follows', 'followed_id'],
+    ['users', 'following_count', 'follows', 'follower_id'],
+    ['users', 'trade_count', 'trades', 'user_id'],
+    ['users', 'post_count', 'community_posts', 'user_id'],
+    ['trades', 'like_count', 'likes', 'trade_id'],
+    ['trades', 'comment_count', 'comments', 'trade_id'],
+    ['trades', 'copy_count', 'trades', 'source_trade_id'],
+    ['community_posts', 'like_count', 'community_post_likes', 'post_id'],
+    ['community_posts', 'comment_count', 'community_post_comments', 'post_id'],
+  ];
+  db.exec('BEGIN IMMEDIATE');
+  try {
+    const updateColor = db.prepare('UPDATE users SET avatar_color = ? WHERE id = ?');
+    for (const user of db.prepare('SELECT id, username, avatar_color FROM users').all()) {
+      const color = avatarColor(user.username);
+      if (color !== user.avatar_color) updateColor.run(color, user.id);
+    }
+    for (const [parent, column, child, foreignKey] of counters) {
+      if (!db.prepare(`PRAGMA table_info(${parent})`).all().some((field) => field.name === column)) {
+        db.exec(`ALTER TABLE ${parent} ADD COLUMN ${column} INTEGER NOT NULL DEFAULT 0;
+          UPDATE ${parent} SET ${column} = (SELECT COUNT(*) FROM ${child} WHERE ${foreignKey} = ${parent}.id);`);
+      }
+      const trigger = `${parent}_${column}`;
+      db.exec(`CREATE TRIGGER IF NOT EXISTS ${trigger}_insert AFTER INSERT ON ${child} BEGIN
+          UPDATE ${parent} SET ${column} = ${column} + 1 WHERE id = NEW.${foreignKey}; END;
+        CREATE TRIGGER IF NOT EXISTS ${trigger}_delete AFTER DELETE ON ${child} BEGIN
+          UPDATE ${parent} SET ${column} = MAX(0, ${column} - 1) WHERE id = OLD.${foreignKey}; END;
+        CREATE TRIGGER IF NOT EXISTS ${trigger}_update AFTER UPDATE OF ${foreignKey} ON ${child}
+          WHEN OLD.${foreignKey} IS NOT NEW.${foreignKey} BEGIN
+          UPDATE ${parent} SET ${column} = MAX(0, ${column} - 1) WHERE id = OLD.${foreignKey};
+          UPDATE ${parent} SET ${column} = ${column} + 1 WHERE id = NEW.${foreignKey}; END;`);
+    }
+    db.exec('COMMIT');
+  } catch (error) {
+    db.exec('ROLLBACK');
+    throw error;
+  }
 }
 
-module.exports = { openDatabase, passwordRecord, verifyPassword, generateWalletAddress };
+module.exports = { openDatabase, migrate, passwordRecord, verifyPassword, generateWalletAddress };

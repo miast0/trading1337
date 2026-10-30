@@ -1,4 +1,13 @@
 const CRYPTO_ICON_ROOT = 'https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color';
+// Fixed sandbox fallback metrics in EUR, used only when the provider has no value.
+const MARKET_METRIC_FALLBACKS = {
+  BTC: [1200000000000, 22000000000], ETH: [250000000000, 12000000000],
+  USDT: [160000000000, 50000000000], BNB: [80000000000, 1400000000],
+  SOL: [50000000000, 2600000000], USDC: [65000000000, 6000000000],
+  XRP: [70000000000, 1800000000], ADA: [16000000000, 350000000],
+  DOGE: [20000000000, 700000000], AVAX: [8000000000, 200000000],
+  LINK: [9000000000, 250000000], DOT: [6000000000, 130000000],
+};
 const ASSET_CATALOG = [
   { symbol: 'BTC', providerId: 'bitcoin', name: 'Bitcoin', color: '#f7931a', priceCents: 6400000, iconUrl: `${CRYPTO_ICON_ROOT}/btc.svg` },
   { symbol: 'ETH', providerId: 'ethereum', name: 'Ethereum', color: '#627eea', priceCents: 245000, iconUrl: `${CRYPTO_ICON_ROOT}/eth.svg` },
@@ -14,8 +23,8 @@ const ASSET_CATALOG = [
   { symbol: 'DOT', providerId: 'polkadot', name: 'Polkadot', color: '#e6007a', priceCents: 620, iconUrl: `${CRYPTO_ICON_ROOT}/dot.svg` },
   { symbol: 'XAU', providerId: 'pax-gold', name: 'Gold', color: '#d4af37', priceCents: 360000, category: 'commodity', iconUrl: 'https://api.iconify.design/game-icons:gold-bar.svg?color=%23d4af37' },
   { symbol: 'XAG', providerId: 'kinesis-silver', name: 'Silver', color: '#c0c7cf', priceCents: 5400, category: 'commodity', iconUrl: 'https://api.iconify.design/game-icons:metal-bar.svg?color=%23c0c7cf' },
-  { symbol: 'DDR5', providerId: 'ramradar:ddr5', name: 'DDR5 RAM per GB', color: '#78e7bc', priceCents: 1450, category: 'memory', source: 'RamRadar RAM Price Index', iconUrl: 'https://api.iconify.design/mdi:memory.svg?color=%2378e7bc' },
-  { symbol: 'DDR4', providerId: 'ramradar:ddr4', name: 'DDR4 RAM per GB', color: '#8da5ff', priceCents: 670, category: 'memory', source: 'RamRadar RAM Price Index', iconUrl: 'https://api.iconify.design/mdi:memory.svg?color=%238da5ff' },
+  { symbol: 'DDR5', providerId: 'ramradar:ddr5', name: 'DDR5 RAM per GB', color: '#78e7bc', priceCents: 1450, category: 'memory', source: 'RamRadar RAM Price Index', iconUrl: '/assets/markets/ram.png' },
+  { symbol: 'DDR4', providerId: 'ramradar:ddr4', name: 'DDR4 RAM per GB', color: '#8da5ff', priceCents: 670, category: 'memory', source: 'RamRadar RAM Price Index', iconUrl: '/assets/markets/ram.png' },
 ].map((asset) => ({ category: 'crypto', source: 'CoinGecko', ...asset }));
 
 function parseCsv(text) {
@@ -66,16 +75,23 @@ class MarketService {
     const insert = this.db.prepare(`INSERT INTO assets(symbol, provider_id, name, color, category, source, icon_url, last_price_cents)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(symbol) DO UPDATE SET provider_id = excluded.provider_id,
       name = excluded.name, color = excluded.color, category = excluded.category, source = excluded.source,
-      icon_url = CASE WHEN assets.icon_url = '' THEN excluded.icon_url ELSE assets.icon_url END`);
+      icon_url = CASE WHEN excluded.category = 'memory' OR assets.icon_url = '' THEN excluded.icon_url ELSE assets.icon_url END`);
     ASSET_CATALOG.forEach((asset) => insert.run(asset.symbol, asset.providerId, asset.name, asset.color, asset.category, asset.source, asset.iconUrl, asset.priceCents));
   }
 
   listFromDatabase() {
     return this.db.prepare(`
       SELECT id, symbol, provider_id AS providerId, name, color, category, source, icon_url AS iconUrl,
-             last_price_cents AS priceCents, change_24h AS change24h, updated_at AS updatedAt
+             last_price_cents AS priceCents, change_24h AS change24h, updated_at AS updatedAt,
+             market_cap_cents AS marketCapCents, volume_24h_cents AS volume24hCents, change_7d AS change7d
       FROM assets ORDER BY id
-    `).all();
+    `).all().map((asset) => {
+      const fallback = MARKET_METRIC_FALLBACKS[asset.symbol];
+      return { ...asset,
+        marketCapCents: asset.marketCapCents ?? (fallback ? fallback[0] * 100 : null),
+        volume24hCents: asset.volume24hCents ?? (fallback ? fallback[1] * 100 : null),
+      };
+    });
   }
 
   async getAssets() {
@@ -95,19 +111,25 @@ class MarketService {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 8000);
       try {
-        const response = await fetch(`${this.baseUrl}/coins/markets?vs_currency=eur&ids=${encodeURIComponent(ids)}&price_change_percentage=24h`, {
+        const response = await fetch(`${this.baseUrl}/coins/markets?vs_currency=eur&ids=${encodeURIComponent(ids)}&price_change_percentage=24h,7d`, {
           signal: controller.signal,
           headers: { accept: 'application/json', 'user-agent': 'Trading1337/0.1' },
         });
         if (!response.ok) throw new Error(`CoinGecko returned ${response.status}`);
         const data = await response.json();
         const quotes = new Map(data.map((quote) => [quote.id, quote]));
-        const update = this.db.prepare("UPDATE assets SET last_price_cents = ?, change_24h = ?, icon_url = COALESCE(NULLIF(?, ''), icon_url), updated_at = ? WHERE id = ?");
+        const update = this.db.prepare(`UPDATE assets SET last_price_cents = ?, change_24h = ?,
+          icon_url = COALESCE(NULLIF(?, ''), icon_url), updated_at = ?,
+          market_cap_cents = ?, volume_24h_cents = ?, change_7d = ? WHERE id = ?`);
+        const metric = (value, multiplier = 1) => typeof value === 'number' && Number.isFinite(value) ? value * multiplier : null;
         const now = new Date().toISOString();
         for (const asset of assets) {
           const quote = quotes.get(asset.providerId);
           if (!quote || !Number.isFinite(Number(quote.current_price))) continue;
-          update.run(Math.round(Number(quote.current_price) * 100), Number(quote.price_change_percentage_24h || 0), quote.image || '', now, asset.id);
+          update.run(Math.round(Number(quote.current_price) * 100), Number(quote.price_change_percentage_24h || 0), quote.image || '', now,
+            asset.category === 'crypto' ? metric(quote.market_cap, 100) : null,
+            asset.category === 'crypto' ? metric(quote.total_volume, 100) : null,
+            metric(quote.price_change_percentage_7d_in_currency), asset.id);
         }
         return data.length;
       } finally {

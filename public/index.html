@@ -6,22 +6,34 @@
   <meta name="theme-color" content="#0b0d0f">
   <meta name="description" content="Trading 1337 — social cryptocurrency trading">
   <title>Trading 1337</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2378e7bc%22/><path d=%22M25 31h50M50 31v45M34 47h32%22 stroke=%22%230b0d0f%22 stroke-width=%2211%22 stroke-linecap=%22round%22/></svg>">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand.svg">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H3Z M9 20v-7h6v7"/></symbol>
+    <symbol id="icon-markets" viewBox="0 0 24 24"><path d="M4 3v17h17 M7 14l4-5 4 3 6-8"/></symbol>
+    <symbol id="icon-portfolio" viewBox="0 0 24 24"><path d="M13 3v8h8 M10 3a9 9 0 1 0 11 11 M16 3a9 9 0 0 1 5 5"/></symbol>
+    <symbol id="icon-discover" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6Z"/></symbol>
+    <symbol id="icon-rank" viewBox="0 0 24 24"><path d="M4 20V12h5v8 M9 20V4h6v16 M15 20V8h5v12"/></symbol>
+    <symbol id="icon-trades" viewBox="0 0 24 24"><path d="M4 8h15l-4-4 M20 16H5l4 4"/></symbol>
+    <symbol id="icon-community" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4Z M8 8h8 M8 12h5"/></symbol>
+    <symbol id="icon-history" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 1 7 M3 4v6h6 M12 7v5l3 2"/></symbol>
+    <symbol id="icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+  </defs></svg>
   <div id="auth-screen" class="auth-screen">
     <section class="auth-brand">
-      <div class="brand brand-large"><span class="brand-mark">T</span><span>Trading <b>1337</b></span></div>
+      <div class="brand brand-large"><span class="brand-mark" aria-hidden="true"><img src="/assets/brand.svg" alt=""></span><span>Trading <b>1337</b></span></div>
       <div class="auth-pitch">
         <p class="eyebrow">Social cryptocurrency trading</p>
-        <h1>Trade the market.<br><span>Find your edge.</span></h1>
-        <p class="pitch-copy">Follow traders, copy moves and build your cryptocurrency portfolio with live market prices.</p>
+        <h1>Your portfolio.<br><span>Your perspective.</span></h1>
+        <p class="pitch-copy">Explore markets, follow traders and join the conversation.</p>
       </div>
     </section>
     <section class="auth-panel">
       <div class="auth-card">
-        <div class="auth-mobile-brand brand"><span class="brand-mark">T</span><span>Trading <b>1337</b></span></div>
+        <div class="auth-mobile-brand brand"><span class="brand-mark" aria-hidden="true"><img src="/assets/brand.svg" alt=""></span><span>Trading <b>1337</b></span></div>
         <div class="auth-tabs" role="tablist">
           <button class="auth-tab active" data-auth-tab="login">Log in</button>
           <button class="auth-tab" data-auth-tab="register">Create account</button>
@@ -47,37 +59,40 @@
 
   <div id="app" class="app hidden">
     <aside class="sidebar">
-      <div class="brand"><span class="brand-mark">T</span><span>Trading <b>1337</b></span></div>
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><img src="/assets/brand.svg" alt=""></span><span>Trading <b>1337</b></span></div>
       <nav class="main-nav" aria-label="Main navigation">
-        <button class="nav-item active" data-route="home"><span class="nav-icon">⌂</span><span>Home</span></button>
-        <button class="nav-item" data-route="markets"><span class="nav-icon">⌕</span><span>Markets</span></button>
-        <button class="nav-item" data-route="portfolio"><span class="nav-icon">◔</span><span>Portfolio</span></button>
+        <button class="nav-item active" data-route="home" title="Overview"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-home"/></svg></span><span>Overview</span></button>
+        <button class="nav-item" data-route="markets" title="Markets"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-markets"/></svg></span><span>Markets</span></button>
+        <button class="nav-item" data-route="portfolio" title="Portfolio"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-portfolio"/></svg></span><span>Portfolio</span></button>
         <div class="nav-group" id="discover-nav">
-          <button class="nav-item nav-heading" data-nav-toggle="discover" aria-expanded="false"><span class="nav-icon">♜</span><span>Discover</span><span class="nav-chevron">›</span></button>
+          <button class="nav-item nav-heading" data-nav-toggle="discover" aria-expanded="false" title="Discover"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-discover"/></svg></span><span>Discover</span><span class="nav-chevron">›</span></button>
           <div class="nav-submenu hidden" id="discover-submenu">
-            <button class="nav-subitem" data-route="discover"><span>♛</span><span>Leaderboard</span></button>
-            <button class="nav-subitem" data-route="recent"><span>↗</span><span>Recent trades</span></button>
-            <button class="nav-subitem" data-route="community"><span>◉</span><span>Community</span></button>
+            <button class="nav-subitem" data-route="discover" title="Leaderboard"><svg class="ui-icon"><use href="#icon-rank"/></svg><span>Leaderboard</span></button>
+            <button class="nav-subitem" data-route="recent" title="Recent trades"><svg class="ui-icon"><use href="#icon-trades"/></svg><span>Recent trades</span></button>
+            <button class="nav-subitem" data-route="community" title="Community"><svg class="ui-icon"><use href="#icon-community"/></svg><span>Community</span></button>
           </div>
         </div>
-        <button class="nav-item" data-route="history"><span class="nav-icon">↻</span><span>History</span></button>
+        <button class="nav-item" data-route="history" title="History"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-history"/></svg></span><span>History</span></button>
+        <button class="nav-item" data-route="transfer" title="Transfer"><span class="nav-icon"><svg class="ui-icon"><use href="#icon-trades"/></svg></span><span>Transfer</span></button>
       </nav>
-      <div class="sidebar-bottom">
-        <button class="nav-item" data-route="transfer"><span class="nav-icon">⇄</span><span>Transfer</span></button>
-        <button class="user-chip" data-route="profile"><span id="side-avatar" class="avatar small"></span><span><b id="side-name">Trader</b><small id="side-username">@trader</small></span><i>•••</i></button>
+      <div class="sidebar-account">
+        <div class="account-menu hidden" id="account-menu" role="menu" aria-label="Account">
+          <button type="button" data-route="profile" role="menuitem"><svg class="ui-icon" aria-hidden="true"><use href="#icon-profile"/></svg>My Profile</button>
+          <button type="button" id="account-logout" role="menuitem"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H4v16h6 M9 12h12l-4-4 M21 12l-4 4"/></svg>Log Out</button>
+        </div>
+        <button type="button" class="account-toggle" id="account-toggle" aria-label="Account menu" aria-haspopup="menu" aria-expanded="false" aria-controls="account-menu"></button>
       </div>
     </aside>
     <button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close navigation"></button>
     <main class="main-shell">
       <header class="topbar">
         <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">☰</button>
-        <div class="search-wrap"><span>⌕</span><input id="global-search" placeholder="Search markets" aria-label="Search markets"><kbd>⌘ K</kbd></div>
-        <div class="top-actions"><span class="live-pill"><i></i> Markets live</span><button class="primary-button compact" data-open-trade>Trade</button></div>
+        <div class="search-wrap"><svg class="ui-icon" aria-hidden="true"><use href="#icon-search"/></svg><input id="global-search" placeholder="Search markets and users" aria-label="Search markets and users" maxlength="100" autocomplete="off"><kbd>⌘ K</kbd></div>
       </header>
       <div id="view" class="view"><div class="page-loader"><span></span><p>Opening the market…</p></div></div>
     </main>
     <nav class="mobile-nav" aria-label="Mobile navigation">
-      <button class="active" data-route="home"><span>⌂</span>Home</button><button data-route="markets"><span>⌕</span>Markets</button><button class="mobile-trade" data-open-trade><span>＋</span></button><button data-route="community"><span>◉</span>Social</button><button data-route="portfolio"><span>◔</span>Portfolio</button>
+      <button class="active" data-route="home"><svg class="ui-icon"><use href="#icon-home"/></svg>Overview</button><button data-route="markets"><svg class="ui-icon"><use href="#icon-markets"/></svg>Markets</button><button data-route="community"><svg class="ui-icon"><use href="#icon-community"/></svg>Community</button><button data-route="portfolio"><svg class="ui-icon"><use href="#icon-portfolio"/></svg>Portfolio</button>
     </nav>
   </div>
 

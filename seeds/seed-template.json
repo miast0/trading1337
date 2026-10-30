@@ -1,0 +1,24 @@
+{
+  "name": "new_seed",
+  "users": [
+    {
+      "username": "replace_me",
+      "email": "replace_me@example.test",
+      "password": "replace-this-password",
+      "name": "Replace This Name",
+      "walletAddress": "0x0000000000000000000000000000000000000000",
+      "bio": "",
+      "cashCents": 0,
+      "followerCount": 0,
+      "followingCount": 0,
+      "createdAt": "2026-10-20T12:00:00.000Z",
+      "holdings": [],
+      "watchlist": [],
+      "followers": [],
+      "follows": [],
+      "transfers": [],
+      "trades": [],
+      "posts": []
+    }
+  ]
+}
